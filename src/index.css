@@ -1,0 +1,25 @@
+/* * {
+  outline: 1px solid red;
+} */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800;900&display=swap");
+
+.page-title {
+  @apply text-lg xs:text-2xl md:text-3xl lg:text-4xl dark:text-white font-semibold text-center;
+}
+
+.btn-select {
+  @apply text-sm xs:text-base md:text-lg lg:text-xl  mx-2 md:mx-5 border-2 border-gray-500 p-2 px-4 rounded-3xl flex flex-row items-center hover:scale-105 transition duration-300 delay-100;
+}
+
+.btn-active {
+  @apply border-gray-50 flex flex-row items-center  bg-black text-white dark:text-black dark:bg-white;
+}
+
+.btn-inActive {
+  @apply border-gray-500 flex flex-row items-center  dark:text-white;
+}
