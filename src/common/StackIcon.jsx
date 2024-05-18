@@ -4,17 +4,20 @@ import {
   SiTailwindcss,
   SiMongodb,
   SiTypescript,
-  SiJest,
   SiFirebase,
   SiElectron,
+  SiDjango,
+  SiFlask,
+  SiPostgresql,
+  SiDocker,
+  SiSelenium
 } from "react-icons/si";
-import { FaCss3Alt, FaReact, FaAngular, FaNodeJs } from "react-icons/fa";
+import { FaCss3Alt, FaReact, FaPython, FaNodeJs } from "react-icons/fa";
 import { TiHtml5 } from "react-icons/ti";
 import { TbBrandReactNative } from "react-icons/tb";
 import { BsGithub } from "react-icons/bs";
 import { TechStack } from "./data";
-
-function StackIcon({ stack, color }) {
+function StackIcon({ stack }) {
   const className = `text-3xl md:text-4xl text-black dark:text-white`;
 
   switch (stack) {
@@ -36,20 +39,26 @@ function StackIcon({ stack, color }) {
       return <FaNodeJs className={className} />;
     case TechStack.MONGODB:
       return <SiMongodb className={className} />;
-    case TechStack.JEST:
-      return <SiJest className={className} />;
     case TechStack.FIREBASE:
       return <SiFirebase className={className} />;
     case TechStack.GIT:
       return <BsGithub className={className} />;
     case TechStack.ELECTRON:
       return <SiElectron className={className} />;
-    case TechStack.ANGULAR:
-      return <FaAngular className={className} />;
-
+    case TechStack.PYTHON:
+      return <FaPython className={className} />;
+    case TechStack.DOCKER:
+      return <SiDocker className={className} />;
+    case TechStack.FLASK:
+      return <SiFlask className={className} />;
+    case TechStack.POSTGRESQL:
+      return <SiPostgresql className={className} />;
+    case TechStack.DJANGO:
+      return <SiDjango className={className} />;
+    case TechStack.SELENIUM:
+      return <SiSelenium className={className} />;
     default:
-      <div />;
-      break;
+      return <div />;
   }
 }
 

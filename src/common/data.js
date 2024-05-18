@@ -9,85 +9,68 @@ import DailyTask_Image from "assets/images/Dailytask_image.png";
 
 export const experience_data = [
   {
-    title: "Lead  Mobile Engineer",
+    title: "Frontend  Mobile & Web Engineer",
     description:
-      "My responsibilities as  the Lead Mobile enineer, include spearheading the development and maintenance of Luupli mobile application, managing a team of engineers while providing technical guidance and leadership. Establishing  technical architecture and design of applications, ensuring scalability, performance, and adherence to coding standards the entire application development lifecycle, producing functional mobile apps with clean code, conducting testing, troubleshooting and optimizing performance, designing user interfaces for better user experiences.",
+      "My responsibilities  include particpation in the development and maintenance of Luupli mobile application and all web functions including the website. I participate in technical architecture and design of mobile and web applications, ensuring scalability, performance, and adherence to coding standards the entire application development lifecycle, producing functional mobile and web apps with clean code and designing user interfaces for better user experiences.",
     company: "Luupli",
     location: "London, UK",
-    from: "Jan,2024",
+    from: "July,2023",
     to: "Present",
   },
   {
-    title: "Lead Mobile Engineer",
+    title: "Teaching Aide",
     description:
-      "My task at Simpu Inc, include supporting the entire application development lifecycle, producing functional mobile apps with clean code, conducting testing, troubleshooting and optimizing performance, designing user interfaces for better user experiences, researching and proposing new mobile technologies, staying updated on tech trends, fixing bugs, and making recommendations for improvements.",
-    company: "Simpu Inc",
+      "My task as a teaching aide and Mentor at Code the dream involved helping students understand React js and Javascript and helping them with assignements that they may be having problems with. I teach them best practices and helped them troubleshoot their code in the cases where bugs arose.",
+    company: "Code The Dream",
     location: "San Francisco, CA",
-    from: "May,2022",
-    to: "Present",
+    from: "July,2023",
+    to: "Feb, 2024",
   },
   {
-    title: "Full-Stack Developer",
+    title: "Technician",
     description:
-      "Buit and currently Managing the IHDM and IGPCM portals, for data records and exam registration. ",
-    company: "IHDM (Institute of Humanitarian and Disaster Management)",
-    location: "Abuja, Nigeria",
-    from: "September, 2020",
-    to: "Present",
-  },
-  {
-    title: "Front-End Developer/Site Reliability Engineer",
-    description:
-      "Building and management of the Simplify Blog, Mange and review pr’s, maintaining branches, setting up continuous integration and continuous delivery (CI/CD) pipelines, and reviewing code changes, troubleshooting both technical and process-related issues to ensure sustained productivity, and ensuring system functionality through rigorous testing.",
-    company: "Mercator Technologies Ltd",
-    location: "Lekki Lagos",
-    from: "October, 2019",
-    to: "May, 2022",
-  },
-
-  {
-    title: "Network Administrator(Intern)",
-    description:
-      "As a system administrator at UPSL, my duties includes monitoring scheduled tasks, ensuring accurate computer output, performing data backups, updating firmware and security measures, managing Microsoft Active Directory, configuring and maintaining various security systems, and assisting with software upgrades and installations to ensure the smooth and secure operation of IT systems.",
-    company: "Unified Payment Services Limited",
-    location: "3, Idowu Taylor,Victoria Island Lagos",
-    from: "May, 2018",
-    to: "October, 2019",
+      "I assited with fixing system and logistical errors for the Ghana Card roll-out. ",
+    company: "National Identification Authority",
+    location: "Accra, Ghana",
+    from: "November, 2018",
+    to: "November, 2020",
   },
 ];
 
 export const education_data = [
   {
-    title: "Mobile Web Specilist(MWS)",
+    title: "BSC Computer Science",
     description: "",
-    company: "Google Africa Developer Scholarship",
+    company: "Ghana Institute of Management and Public Administration (GIMPA)",
+    location: "Accra, Ghana",
+    from: "2023",
+    to: "",
+  },
+  {
+    title: "CS 50 (Online Introductory Program)",
+    description: "",
+    company: "Havard University",
+    location: "Massachusetts, Cambridge",
+    from: "",
+    to: "2021",
+  },
+
+  {
+    title: "Full Stack Development",
+    description: "",
+    company: "Udemy",
     location: "",
     from: "",
     to: "2021",
   },
+
   {
-    title: "BSc(Hons) Computer Science.",
+    title: "BSc Agricultural Science.",
     description: "",
-    company: "Federal University Gashu’a,",
-    location: "Yobe State. Nigeria",
-    from: "",
-    to: "2019",
-  },
-  {
-    title: "Cisco Certified Network Associate(CCNA)",
-    description: "",
-    company: "Deft-Rains Solutions Nigeria",
-    location: "Lagos State. Nigeria",
-    from: "",
-    to: "2015",
-  },
-  {
-    title: "National Diploma(Computer Engineering)",
-    description: "",
-    company: "Lagos State Polytechnic",
-    location: "Lagos State. Nigeria",
-    from: "",
-    to: "2013",
+    company: "University of Ghana,",
+    location: "Accra, Ghana",
+    from: "2013",
+    to: "2017",
   },
 ];
 
@@ -103,9 +86,14 @@ export const TechStack = {
   ANGULAR: "AngularJS",
   TAILWIND: "TailwindCss",
   GIT: "Git",
-  MONGODB: "Mongo DB",
-  JEST: "Jest (Testing)",
+  MONGODB: "MongoDB",
   FIREBASE: "Firebase",
+  PYTHON: "Python",
+  DOCKER: "Docker",
+  FLASK: "Flask",
+  POSTGRESQL: "Postgresql",
+  DJANGO: "Django",
+  SELENIUM: "Selenium",
 };
 
 export const TeckStack = [
@@ -134,9 +122,6 @@ export const TeckStack = [
     name: TechStack.ELECTRON,
   },
   {
-    name: TechStack.ANGULAR,
-  },
-  {
     name: TechStack.NODEJS,
   },
   {
@@ -151,6 +136,25 @@ export const TeckStack = [
   {
     name: TechStack.FIREBASE,
   },
+  {
+    name: TechStack.PYTHON,
+  },
+  {
+    name: TechStack.DOCKER,
+  },
+  {
+    name: TechStack.FLASK,
+  },
+  {
+    name: TechStack.POSTGRESQL,
+  },
+  {
+    name: TechStack.DJANGO,
+  },
+  {
+    name: TechStack.SELENIUM,
+  },
+
 ];
 
 export const ProjectType = {
