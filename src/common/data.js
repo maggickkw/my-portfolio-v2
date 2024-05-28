@@ -6,6 +6,7 @@ import Goboomit_Image from "assets/images/Goboomit.png";
 import SimpuGo_Banner from "assets/images/simpuBanner.png";
 import Monie_Image from "assets/images/Monie_image.png";
 import DailyTask_Image from "assets/images/Dailytask_image.png";
+import EduanePa from 'assets/images/EduanePa.png';
 
 export const experience_data = [
   {
@@ -248,14 +249,13 @@ export const Project_data = [
     technologies: ["GatsbyJS", "CSS", "Node/StrapiJs", "MongoDb", "Cloudinary"],
   },
   {
-    type: ProjectType.DESKTOP,
-    name: "Tic Tac Toa (XandO)",
-    projectImage:
-      "https://twproject.com/blog/wp-content/uploads/how-to-manage-project-integration.png",
+    type: ProjectType.MOBILE,
+    name: "EDUANEPA",
+    projectImage: EduanePa,
     description:
-      "XandO popularly known as Tic Tac Toe Electron-react App for Desktop PC/Mac and linux",
-    repo: "https://github.com/tdammy92/XandO",
+      "Food recipe app with search functionality to help you make the tastiest meals no matter the mood or time of day",
+    repo: "https://github.com/maggickkw/food-recipe-app",
     link: "",
-    technologies: ["ElectronJS", "CSS"],
+    technologies: ["React-Native", "React-Navigation"],
   },
 ];
