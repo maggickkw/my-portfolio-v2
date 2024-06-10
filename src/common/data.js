@@ -1,12 +1,9 @@
-import IHDM_Image from "assets/images/Ihdm_image.png";
-import IGPCM_Image from "assets/images/igpcm_image.png";
-import SimplifyBlog_Image from "assets/images/simplifyBlog_image.png";
-import Goboomit_Image from "assets/images/Goboomit.png";
-// import SimpuGo_Image from "assets/images/SimpuGo_image.png";
-import SimpuGo_Banner from "assets/images/simpuBanner.png";
-import Monie_Image from "assets/images/Monie_image.png";
-import DailyTask_Image from "assets/images/Dailytask_image.png";
-import EduanePa from 'assets/images/EduanePa.png';
+
+import expense_tracker from "assets/images/expense-tracker.png";
+import luupli_legal from 'assets/images/luupli_legal.png';
+import luupli from "assets/images/luupli-website.png";
+
+import EduanePa from "assets/images/EduanePa.png";
 
 export const experience_data = [
   {
@@ -155,7 +152,6 @@ export const TeckStack = [
   {
     name: TechStack.SELENIUM,
   },
-
 ];
 
 export const ProjectType = {
@@ -164,89 +160,36 @@ export const ProjectType = {
   DESKTOP: "desktop",
 };
 export const Project_data = [
-  {
-    type: ProjectType.MOBILE,
-    name: "SimpuGO",
-    projectImage: SimpuGo_Banner,
 
-    description:
-      "Simpu is the all-in-one communication platform for your teams' and customer interaction needs from email, social media, SMS to Live chat.",
-    repo: "",
-    link: "https://play.google.com/store/apps/details?id=co.simpu.inbox",
-    technologies: ["React-Native", "React-Query", "UI-kitten", "Firebase"],
-  },
   {
     type: ProjectType.MOBILE,
-    name: "Goboomit",
-    projectImage: Goboomit_Image,
-
+    name: "Expense Tracker App",
+    projectImage: expense_tracker,
     description:
-      "Goboomit is a platform that makes it easy for influencers and businesses to collaborate. Paving the way for good cooperation between our influencers and their partners. we also have a strong focus on companies and their campaigns, so on goboomit, you can find all kinds of products, companies and campaigns",
-    repo: "",
-    link: "https://play.google.com/store/apps/details?id=com.goboomit",
-    technologies: ["React-Native", "Expo", "Firebase"],
-  },
-  {
-    type: ProjectType.MOBILE,
-    name: "Moniee Mobile",
-    projectImage: Monie_Image,
-
-    description:
-      "Moniee is a mobile fintech app for sending and recieving funds directly to anyone from your contact. ",
-    repo: "https://github.com/tdammy92/Moniee",
-    link: "https://drive.google.com/file/d/1-LImj4UBOstDWKjDeEw1JBTvtLxthN30/view?usp=drive_link",
-    technologies: ["React-Native", "Async-storage", "redux"],
-  },
-  {
-    type: ProjectType.MOBILE,
-    name: "DailyTask",
-    projectImage: DailyTask_Image,
-    description:
-      "Daily Task is a close replica of google task, with more features such as nested List.",
-    repo: "",
-    link: "https://drive.google.com/file/d/1JPX3IRVUXNLTu94DACJzR1CPyE9F6H3Y/view?usp=drive_link",
-    technologies: ["React-Native", "Async-storage", "Firebase"],
+      "Built a simple expense tarcker app to help me keep track of and manage my expenses",
+    repo: "https://github.com/maggickkw/expense-tracker",
+    link: "",
+    technologies: ["React-Native", "Context-API", "Firebase", "React-Navigation", "Typescript"],
   },
   {
     type: ProjectType.WEB,
-    name: "IHDM Portal",
-    projectImage: IHDM_Image,
+    name: "Luupli-Legal",
+    projectImage: luupli_legal,
     description:
-      "Ihdm portal, is owned by a research body, that conducts independent result-based research on vulnerable communities, carries out public education and training, advance policy advocacy.",
-    repo: "https://github.com/tdammy92/ihdm-web",
-    link: "https://ihdm.org.ng/",
-    technologies: ["ReactJS", "MaterialUI", "Node/StrapiJs", "MongoDb"],
-  },
-  {
-    type: ProjectType.WEB,
-    name: "IGPCM Portal",
-    projectImage: IGPCM_Image,
-    description:
-      "A Registration portal, IGPCM professionally raises, trains and primes individuals and corporate bodies, with practical skills training, in peace building.",
-    repo: "https://github.com/tdammy92/ipcm-web",
-    link: "https://igpcm.org.ng/",
-    technologies: ["ReactJS", "MaterialUI", "NodeJs", "MongoDb", "Cloudinary"],
-  },
-  {
-    type: ProjectType.MOBILE,
-    name: "FugaGpa",
-    projectImage:
-      "https://twproject.com/blog/wp-content/uploads/how-to-manage-project-integration.png",
-    description:
-      "FugaGpa is a mobile app for student of the federal university gashua, which serves as a guild to many things on campus like GPA calculation, Time table, Library etc.",
-    repo: "https://github.com/tdammy92/FugaApp",
-    link: "https://drive.google.com/file/d/1h0soxyODfMDt9tnlkgIMTTcaCzTaRS8I/view?usp=sharing",
-    technologies: ["React-Native"],
-  },
-  {
-    type: ProjectType.WEB,
-    name: "Simplify Blog",
-    projectImage: SimplifyBlog_Image,
-    description:
-      "The Blog is a journal to provide insight, about Simpilify, which is a simple and modern point of sales with integrated inventory management system for growing businesses.",
+      "All the legal documents governing luupli mobile usage for both web and mobile.",
     repo: "",
-    link: "https://simplifyblog.netlify.app/",
-    technologies: ["GatsbyJS", "CSS", "Node/StrapiJs", "MongoDb", "Cloudinary"],
+    link: "https://legal.luupli.com",
+    technologies: ["Markdown"],
+  },
+  {
+    type: ProjectType.WEB,
+    name: "Luupli website",
+    projectImage: luupli,
+    description:
+      "This is the official website of the luupli comapny based in the Uniked Kingdom",
+    repo: "",
+    link: "https://www.luupli.com",
+    technologies: ["React js", "Tailwind Css", "React-router-dom", "Axios"],
   },
   {
     type: ProjectType.MOBILE,

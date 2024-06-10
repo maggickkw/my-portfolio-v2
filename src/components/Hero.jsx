@@ -19,7 +19,7 @@ function Hero() {
               Wilberforce Sedem Haibor
             </h2>
             <p className="text-base xs:text-l md:text-xl lg:text-2xl   text-gray-600 my-5 dark:text-gray-200">
-              A Full Stack Mobile, Web Engineer & Machine Learning Enthusiast
+              A Full Stack Mobile & Web Engineer, Automations Engineer & Machine Learning Enthusiast
               conversant with the evolvment of technology
             </p>
           </div>
