@@ -1,4 +1,4 @@
-
+import fav_places from 'assets/images/my-fav-places.png';
 import expense_tracker from "assets/images/expense-tracker.png";
 import luupli_legal from 'assets/images/luupli_legal.png';
 import luupli from "assets/images/luupli-website.png";
@@ -161,16 +161,7 @@ export const ProjectType = {
 };
 export const Project_data = [
 
-  {
-    type: ProjectType.MOBILE,
-    name: "Expense Tracker App",
-    projectImage: expense_tracker,
-    description:
-      "Built a simple expense tarcker app to help me keep track of and manage my expenses",
-    repo: "https://github.com/maggickkw/expense-tracker",
-    link: "",
-    technologies: ["React-Native", "Context-API", "Firebase", "React-Navigation", "Typescript"],
-  },
+
   {
     type: ProjectType.WEB,
     name: "Luupli-Legal",
@@ -190,6 +181,26 @@ export const Project_data = [
     repo: "",
     link: "https://www.luupli.com",
     technologies: ["React js", "Tailwind Css", "React-router-dom", "Axios"],
+  },
+  {
+    type: ProjectType.MOBILE,
+    name: "my-fav-places",
+    projectImage: fav_places,
+    description:
+      "An app for keeping track of your favorite memories and the locations the happened at",
+    repo: "https://github.com/maggickkw/my-fav-places",
+    link: "",
+    technologies: ["React-Native", "Expo", "Expo-Location", "React-Navigation"],
+  },
+  {
+    type: ProjectType.MOBILE,
+    name: "Expense Tracker App",
+    projectImage: expense_tracker,
+    description:
+      "Built a simple expense tarcker app to help me keep track of and manage my expenses",
+    repo: "https://github.com/maggickkw/expense-tracker",
+    link: "",
+    technologies: ["React-Native", "Context-API", "Firebase", "React-Navigation", "Typescript"],
   },
   {
     type: ProjectType.MOBILE,
