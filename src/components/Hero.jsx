@@ -25,7 +25,7 @@ function Hero() {
           </div>
           <div className="mt-6 flex flex-row items-center justify-center font-Poppins">
             <a
-              href="./MyCv.pdf"
+              href="./Wilberforce_Sedem_Haibor.pdf"
               download={true}
               target="__blank"
               className="mx-4 border-2 text-base xs:text-lg md:text-xl lg:text-2xl gap-x-2 border-black dark:border-white p-1 px-6 xs:px-6 md:px-6 rounded-3xl flex flex-row items-center bg-black text-white  hover:bg-white hover:text-black transition ease-in-out duration-300">
