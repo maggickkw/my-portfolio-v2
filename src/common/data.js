@@ -1,6 +1,6 @@
-import fav_places from 'assets/images/my-fav-places.png';
+import fav_places from "assets/images/my-fav-places.png";
 import expense_tracker from "assets/images/expense-tracker.png";
-import luupli_legal from 'assets/images/luupli_legal.png';
+import luupli_legal from "assets/images/luupli_legal.png";
 import luupli from "assets/images/luupli-website.png";
 
 import EduanePa from "assets/images/EduanePa.png";
@@ -160,8 +160,16 @@ export const ProjectType = {
   DESKTOP: "desktop",
 };
 export const Project_data = [
-
-
+  {
+    type: ProjectType.WEB,
+    name: "Luupli website",
+    projectImage: luupli,
+    description:
+      "This is the official website of the luupli comapny based in the United Kingdom",
+    repo: "",
+    link: "https://www.luupli.com",
+    technologies: ["React js", "Tailwind Css", "React-router-dom", "Axios"],
+  },
   {
     type: ProjectType.WEB,
     name: "Luupli-Legal",
@@ -173,14 +181,14 @@ export const Project_data = [
     technologies: ["Markdown"],
   },
   {
-    type: ProjectType.WEB,
-    name: "Luupli website",
-    projectImage: luupli,
+    type: ProjectType.MOBILE,
+    name: "EDUANEPA",
+    projectImage: EduanePa,
     description:
-      "This is the official website of the luupli comapny based in the United Kingdom",
-    repo: "",
-    link: "https://www.luupli.com",
-    technologies: ["React js", "Tailwind Css", "React-router-dom", "Axios"],
+      "Food recipe app with search functionality to help you make the tastiest meals no matter the mood or time of day",
+    repo: "https://github.com/maggickkw/food-recipe-app",
+    link: "",
+    technologies: ["React-Native", "React-Navigation"],
   },
   {
     type: ProjectType.MOBILE,
@@ -200,16 +208,13 @@ export const Project_data = [
       "Built a simple expense tarcker app to help me keep track of and manage my expenses",
     repo: "https://github.com/maggickkw/expense-tracker",
     link: "",
-    technologies: ["React-Native", "Context-API", "Firebase", "React-Navigation", "Typescript"],
+    technologies: [
+      "React-Native",
+      "Context-API",
+      "Firebase",
+      "React-Navigation",
+      "Typescript",
+    ],
   },
-  {
-    type: ProjectType.MOBILE,
-    name: "EDUANEPA",
-    projectImage: EduanePa,
-    description:
-      "Food recipe app with search functionality to help you make the tastiest meals no matter the mood or time of day",
-    repo: "https://github.com/maggickkw/food-recipe-app",
-    link: "",
-    technologies: ["React-Native", "React-Navigation"],
-  },
+
 ];
