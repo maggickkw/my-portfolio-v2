@@ -27,7 +27,7 @@ export const experience_data = [
   {
     title: "Technician",
     description:
-      "I assited with fixing system and logistical errors for the Ghana Card roll-out. ",
+      "I assisted with fixing system and logistical errors for the Ghana Card roll-out. ",
     company: "National Identification Authority",
     location: "Accra, Ghana",
     from: "November, 2018",
@@ -177,7 +177,7 @@ export const Project_data = [
     name: "Luupli website",
     projectImage: luupli,
     description:
-      "This is the official website of the luupli comapny based in the Uniked Kingdom",
+      "This is the official website of the luupli comapny based in the United Kingdom",
     repo: "",
     link: "https://www.luupli.com",
     technologies: ["React js", "Tailwind Css", "React-router-dom", "Axios"],
