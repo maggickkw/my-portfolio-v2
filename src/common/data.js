@@ -18,7 +18,7 @@ export const experience_data = [
   {
     title: "Teaching Aide",
     description:
-      "My task as a teaching aide and Mentor at Code the dream involved helping students understand React js and Javascript and helping them with assignements that they may be having problems with. I teach them best practices and helped them troubleshoot their code in the cases where bugs arose.",
+      "My task as a teaching aide and Mentor at Code the dream involved helping students understand React js and Javascript and helping them with assignments that they may be having problems with. I teach them best practices and helped them troubleshoot their code in the cases where bugs arose.",
     company: "Code The Dream",
     location: "San Francisco, CA",
     from: "July,2023",
@@ -195,7 +195,7 @@ export const Project_data = [
     name: "my-fav-places",
     projectImage: fav_places,
     description:
-      "An app for keeping track of your favorite memories and the locations the happened at",
+      "An app to record and cherish your favorite memories along with the places where they happened",
     repo: "https://github.com/maggickkw/my-fav-places",
     link: "",
     technologies: ["React-Native", "Expo", "Expo-Location", "React-Navigation"],
@@ -205,7 +205,7 @@ export const Project_data = [
     name: "Expense Tracker App",
     projectImage: expense_tracker,
     description:
-      "Built a simple expense tarcker app to help me keep track of and manage my expenses",
+      "Built a simple expense tracker app to help me keep track of and manage my expenses",
     repo: "https://github.com/maggickkw/expense-tracker",
     link: "",
     technologies: [
