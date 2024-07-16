@@ -165,7 +165,7 @@ export const Project_data = [
     name: "Luupli website",
     projectImage: luupli,
     description:
-      "This is the official website of the luupli comapny based in the United Kingdom",
+      "This is the official website of the luupli company based in the United Kingdom",
     repo: "",
     link: "https://www.luupli.com",
     technologies: ["React js", "Tailwind Css", "React-router-dom", "Axios"],
