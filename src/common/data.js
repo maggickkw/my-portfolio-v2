@@ -2,6 +2,7 @@ import fav_places from "assets/images/my-fav-places.png";
 import expense_tracker from "assets/images/expense-tracker.png";
 import luupli_legal from "assets/images/luupli_legal.png";
 import luupli from "assets/images/luupli-website.png";
+import shop from 'assets/images/shop-api.jpg';
 
 import EduanePa from "assets/images/EduanePa.png";
 
@@ -158,6 +159,7 @@ export const ProjectType = {
   WEB: "web",
   MOBILE: "mobile",
   DESKTOP: "desktop",
+  BACKEND: "backend"
 };
 export const Project_data = [
   {
@@ -179,6 +181,16 @@ export const Project_data = [
     repo: "",
     link: "https://legal.luupli.com",
     technologies: ["Markdown"],
+  },
+  {
+    type: ProjectType.WEB,
+    name: "Shop-API",
+    projectImage: shop,
+    description:
+      "Created an API for online shopping that links shops to items and uses JWT for secure authentication.",
+    repo: "https://github.com/maggickkw/store-api",
+    link: "https://store-api-mmr8.onrender.com/swagger-ui",
+    technologies: ["Python", "FLASK", "FLASK_SMOREST", "POSTGRESQL", "DOCKER", "JWT"],
   },
   {
     type: ProjectType.MOBILE,
