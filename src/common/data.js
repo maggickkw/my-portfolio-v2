@@ -1,5 +1,5 @@
 import fav_places from "assets/images/my-fav-places.png";
-import expense_tracker from "assets/images/expense-tracker.png";
+import fintech from "assets/images/fintech.png";
 import luupli_legal from "assets/images/luupli_legal.png";
 import luupli from "assets/images/luupli-website.png";
 import shop from 'assets/images/shop-api.jpg';
@@ -173,6 +173,22 @@ export const Project_data = [
     technologies: ["React js", "Tailwind Css", "React-router-dom", "Axios"],
   },
   {
+    type: ProjectType.MOBILE,
+    name: "Fintech App",
+    projectImage: fintech ,
+    description:
+      "A clone of Revelo crypto app to enable users buy and sell crypto easily.",
+    repo: "https://github.com/maggickkw/crypto-app",
+    link: "",
+    technologies: [
+      "React-Native",
+      "Tanstack Query",
+      "Clerk",
+      "Expo Router",
+      "Typescript",
+    ],
+  },
+  {
     type: ProjectType.WEB,
     name: "Luupli-Legal",
     projectImage: luupli_legal,
@@ -212,21 +228,6 @@ export const Project_data = [
     link: "",
     technologies: ["React-Native", "Expo", "Expo-Location", "React-Navigation"],
   },
-  {
-    type: ProjectType.MOBILE,
-    name: "Expense Tracker App",
-    projectImage: expense_tracker,
-    description:
-      "Built a simple expense tracker app to help me keep track of and manage my expenses",
-    repo: "https://github.com/maggickkw/expense-tracker",
-    link: "",
-    technologies: [
-      "React-Native",
-      "Context-API",
-      "Firebase",
-      "React-Navigation",
-      "Typescript",
-    ],
-  },
+
 
 ];
