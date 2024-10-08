@@ -186,7 +186,7 @@ export const Project_data = [
     name: "Fintech App",
     projectImage: fintech ,
     description:
-      "A clone of Relevo crypto app to enable users buy and sell crypto easily.",
+      "A clone of Relevo crypto app to enable users buy and sell crypto easily as well as added security with Face ID and other modern authentication methos.",
     repo: "https://github.com/maggickkw/crypto-app",
     link: "",
     technologies: [
