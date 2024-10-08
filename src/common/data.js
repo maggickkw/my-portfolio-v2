@@ -8,6 +8,15 @@ import EduanePa from "assets/images/EduanePa.png";
 
 export const experience_data = [
   {
+    title: "Full-Stack Developer",
+    description:
+      "Rebuilding and currently Managing the IHDM and IGPCM portals, for data records and exam registration.",
+    company: "IHDM (Institute of Humanitarian and Disaster Management)",
+    location: "",
+    from: "January,2024",
+    to: "Present",
+  },
+  {
     title: "Frontend  Mobile & Web Engineer",
     description:
       "My responsibilities  include particpation in the development and maintenance of Luupli mobile application and all web functions including the website. I participate in technical architecture and design of mobile and web applications, ensuring scalability, performance, and adherence to coding standards the entire application development lifecycle, producing functional mobile and web apps with clean code and designing user interfaces for better user experiences.",
