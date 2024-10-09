@@ -3,6 +3,7 @@ import fintech from "assets/images/fintech.png";
 import luupli_legal from "assets/images/luupli_legal.png";
 import luupli from "assets/images/luupli-website.png";
 import shop from 'assets/images/shop-api.jpg';
+import Luupli_Banner from 'assets/images/Luupli_banner.png'
 
 import EduanePa from "assets/images/EduanePa.png";
 
@@ -171,6 +172,16 @@ export const ProjectType = {
   BACKEND: "backend"
 };
 export const Project_data = [
+  {
+    type: ProjectType.MOBILE,
+    name: "Luupli",
+    projectImage: Luupli_Banner,
+    description:
+      "luupli, the revolutionary social media platform that empowers genuine self-expression and promotes authentic human connections. Join a diverse global community where your voice takes center stage.",
+    repo: "",
+    link: "https://apps.apple.com/gb/app/luupli/id6463861554",
+    technologies: ["React-Native", "React-Query", "Firebase","Websocket"],
+  },
   {
     type: ProjectType.WEB,
     name: "Luupli website",
