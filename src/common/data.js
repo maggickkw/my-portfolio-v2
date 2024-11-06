@@ -5,6 +5,7 @@ import luupli from "assets/images/luupli-website.png";
 import shop from 'assets/images/shop-api.jpg';
 import Luupli_Banner from 'assets/images/Luupli_banner.png'
 import TaskPulse from '../assets/images/dashboard.png';
+import { isIOS } from "react-device-detect";
 
 import EduanePa from "assets/images/EduanePa.png";
 
@@ -180,7 +181,7 @@ export const Project_data = [
     description:
       "luupli, the revolutionary social media platform that empowers genuine self-expression and promotes authentic human connections. Join a diverse global community where your voice takes center stage.",
     repo: "",
-    link: "https://apps.apple.com/gb/app/luupli/id6463861554",
+    link: isIOS ?  "https://apps.apple.com/gb/app/luupli/id6463861554" : "https://play.google.com/store/apps/details?id=com.dev.luupli.uat&hl=en",
     technologies: ["React-Native", "React-Query", "Firebase","Websocket"],
   },
   {
