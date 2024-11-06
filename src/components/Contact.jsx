@@ -196,9 +196,9 @@ function Contact() {
               <a href="https://github.com/maggickkw" target="__blank">
                 <BsGithub className={classNameSocial} />
               </a>
-              <a href="https://x.com/king_maggick" target="__blank">
+              {/* <a href="https://x.com/king_maggick" target="__blank">
                 <BsTwitterX className={classNameSocial} />
-              </a>
+              </a> */}
               <a
                 href="https://api.whatsapp.com/send?phone=233245910775"
                 target="__blank">
