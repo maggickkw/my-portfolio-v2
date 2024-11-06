@@ -4,6 +4,7 @@ import luupli_legal from "assets/images/luupli_legal.png";
 import luupli from "assets/images/luupli-website.png";
 import shop from 'assets/images/shop-api.jpg';
 import Luupli_Banner from 'assets/images/Luupli_banner.png'
+import TaskPulse from '../assets/images/dashboard.png';
 
 import EduanePa from "assets/images/EduanePa.png";
 
@@ -181,6 +182,16 @@ export const Project_data = [
     repo: "",
     link: "https://apps.apple.com/gb/app/luupli/id6463861554",
     technologies: ["React-Native", "React-Query", "Firebase","Websocket"],
+  },
+  {
+    type: ProjectType.WEB,
+    name: "TaskPulse Dashboard",
+    projectImage: TaskPulse,
+    description:
+      "Developed a comprehensive project management dashboard using Next.js for the frontend and Node.js for the backend. This full-stack application includes intuitive drag-and-drop functionality for seamless task organization, empowering teams to streamline their workflows efficiently.",
+    repo: "https://github.com/maggickkw/TaskPulse",
+    link: "https://task-pulse-dashboard.vercel.app/",
+    technologies: ["Next js","Node js", "Tailwind Css", "Redux Toolkit", "Redux"],
   },
   {
     type: ProjectType.WEB,
