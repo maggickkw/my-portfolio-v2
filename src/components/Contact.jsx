@@ -6,7 +6,6 @@ import {
   BsDiscord,
   BsGithub,
   BsHourglassTop,
-  BsTwitterX
 } from "react-icons/bs";
 import { GiSmartphone } from "react-icons/gi";
 import { IoLogoWhatsapp } from "react-icons/io";
