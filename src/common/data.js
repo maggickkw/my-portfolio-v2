@@ -11,11 +11,20 @@ import EduanePa from "assets/images/EduanePa.png";
 
 export const experience_data = [
   {
+    title: "Fullstack Mobile & Web Developer",
+    description:
+      "At Payswitch, a fintech company offering alternative banking solutions to banks and merchants, I contribute to the design, development, and maintenance of mobile and web applications. My role includes building scalable, secure, and user-friendly solutions tailored to financial services. I focus on end-to-end development processes, delivering high-performance systems that enhance user experiences and drive operational efficiency.",
+    company: "Payswitch Company Limited",
+    location: "Accra, Ghana",
+    from: "November, 2024",
+    to: "Present",
+  },
+  {
     title: "Full-Stack Developer",
     description:
       "Rebuilding and currently Managing the IHDM and IGPCM portals, for data records and exam registration.",
     company: "IHDM (Institute of Humanitarian and Disaster Management)",
-    location: "",
+    location: "Abuja, Nigeria",
     from: "January,2024",
     to: "Present",
   },
@@ -33,7 +42,7 @@ export const experience_data = [
     description:
       "My task as a teaching aide and Mentor at Code the dream involved helping students understand React js and Javascript and helping them with assignments that they may be having problems with. I teach them best practices and helped them troubleshoot their code in the cases where bugs arose.",
     company: "Code The Dream",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA, USA",
     from: "July,2023",
     to: "Feb, 2024",
   },
