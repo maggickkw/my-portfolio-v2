@@ -10,15 +10,15 @@ import { isIOS } from "react-device-detect";
 import EduanePa from "assets/images/EduanePa.png";
 
 export const experience_data = [
-  {
-    title: "Fullstack Mobile & Web Developer",
-    description:
-      "At Payswitch, a fintech company offering alternative banking solutions to banks and merchants, I contribute to the design, development, and maintenance of mobile and web applications. My role includes building scalable, secure, and user-friendly solutions tailored to financial services. I focus on end-to-end development processes, delivering high-performance systems that enhance user experiences and drive operational efficiency.",
-    company: "Payswitch Company Limited",
-    location: "Accra, Ghana",
-    from: "November, 2024",
-    to: "Present",
-  },
+  // {
+  //   title: "Fullstack Mobile & Web Developer",
+  //   description:
+  //     "At Payswitch, a fintech company offering alternative banking solutions to banks and merchants, I contribute to the design, development, and maintenance of mobile and web applications. My role includes building scalable, secure, and user-friendly solutions tailored to financial services. I focus on end-to-end development processes, delivering high-performance systems that enhance user experiences and drive operational efficiency.",
+  //   company: "Payswitch Company Limited",
+  //   location: "Accra, Ghana",
+  //   from: "November, 2024",
+  //   to: "Present",
+  // },
   {
     title: "Full-Stack Developer",
     description:
