@@ -4,7 +4,6 @@ import {
   SiTailwindcss,
   SiMongodb,
   SiTypescript,
-  SiFirebase,
   SiElectron,
   SiDjango,
   SiFlask,
