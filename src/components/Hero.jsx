@@ -73,7 +73,7 @@ function Hero() {
               animate={{ opacity: 1 }} // Icons fade in
               transition={{ duration: 1, delay: index * 0.5 }} // Delay for each icon based on its index
             >
-              <StackIcon stack={stack.name} />
+              <StackIcon stack={stack.name}  />
             </motion.div>
           ))}
         </div>

@@ -10,53 +10,65 @@ import {
   SiFlask,
   SiPostgresql,
   SiDocker,
-  SiSelenium
+  SiSelenium,
+  SiGo,
+  SiLaravel,
+  SiPhp,
+  SiDeno,
+  SiGit
 } from "react-icons/si";
 import { FaCss3Alt, FaReact, FaPython, FaNodeJs } from "react-icons/fa";
 import { TiHtml5 } from "react-icons/ti";
-import { TbBrandReactNative } from "react-icons/tb";
-import { BsGithub } from "react-icons/bs";
+import { TbBrandFirebase, TbBrandReactNative } from "react-icons/tb";
 import { TechStack } from "./data";
 function StackIcon({ stack }) {
   const className = `text-3xl md:text-4xl text-black dark:text-white`;
 
   switch (stack) {
     case TechStack.HTML:
-      return <TiHtml5 className={className} />;
+      return <TiHtml5 color="#E44D26" className={className} />;
     case TechStack.CSS:
-      return <FaCss3Alt className={className} />;
+      return <FaCss3Alt color="#264de4" className={className} />;
     case TechStack.TAILWIND:
-      return <SiTailwindcss className={className} />;
+      return <SiTailwindcss color="#38BDF8" className={className} />;
     case TechStack.JAVASCRIPT:
-      return <SiJavascript className={className} />;
+      return <SiJavascript color="#F7DF1E" className={className} />;
     case TechStack.TYPESCRIPT:
-      return <SiTypescript className={className} />;
+      return <SiTypescript color="#3178C6" className={className} />;
     case TechStack.REACTJS:
-      return <FaReact className={className} />;
+      return <FaReact color="#61DBFB" className={className} />;
     case TechStack.REACTNATIVE:
-      return <TbBrandReactNative className={className} />;
+      return <TbBrandReactNative color="#61DBFB" className={className} />;
     case TechStack.NODEJS:
-      return <FaNodeJs className={className} />;
+      return <FaNodeJs color="#68A063" className={className} />;
     case TechStack.MONGODB:
-      return <SiMongodb className={className} />;
+      return <SiMongodb color="#47A248" className={className} />;
     case TechStack.FIREBASE:
-      return <SiFirebase className={className} />;
+      return <TbBrandFirebase color="#FFCA28" className={className} />;
     case TechStack.GIT:
-      return <BsGithub className={className} />;
+      return <SiGit color="#F05032" className={className} />;
     case TechStack.ELECTRON:
-      return <SiElectron className={className} />;
+      return <SiElectron color="#47848F" className={className} />;
     case TechStack.PYTHON:
-      return <FaPython className={className} />;
+      return <FaPython color="#3776AB" className={className} />;
     case TechStack.DOCKER:
-      return <SiDocker className={className} />;
+      return <SiDocker color="#0db7ed" className={className} />;
     case TechStack.FLASK:
-      return <SiFlask className={className} />;
+      return <SiFlask color="#4fd8df" className={className} />;
     case TechStack.POSTGRESQL:
-      return <SiPostgresql className={className} />;
+      return <SiPostgresql color="#336791" className={className} />;
     case TechStack.DJANGO:
-      return <SiDjango className={className} />;
+      return <SiDjango color="#136149" className={className} />;
     case TechStack.SELENIUM:
-      return <SiSelenium className={className} />;
+      return <SiSelenium color="#43B02A" className={className} />;
+    case TechStack.GO_LANG:
+      return <SiGo color="#00ADD8" className={className} />
+    case TechStack.LARAVEL:
+      return <SiLaravel color="#FF2D20" className={className} />
+    case TechStack.PHP:
+      return <SiPhp color="#777BB4" className={className} />
+    case TechStack.DENO:
+      return <SiDeno  className={className} />
     default:
       return <div />;
   }

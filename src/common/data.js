@@ -2,23 +2,23 @@ import fav_places from "assets/images/my-fav-places.png";
 import fintech from "assets/images/fintech.png";
 import luupli_legal from "assets/images/luupli_legal.png";
 import luupli from "assets/images/luupli-website.png";
-import shop from 'assets/images/shop-api.jpg';
-import Luupli_Banner from 'assets/images/Luupli_banner.png'
-import TaskPulse from '../assets/images/dashboard.png';
+import shop from "assets/images/shop-api.jpg";
+import Luupli_Banner from "assets/images/Luupli_banner.png";
+import TaskPulse from "../assets/images/dashboard.png";
 import { isIOS } from "react-device-detect";
 
 import EduanePa from "assets/images/EduanePa.png";
 
 export const experience_data = [
-  // {
-  //   title: "Fullstack Mobile & Web Developer",
-  //   description:
-  //     "At Payswitch, a fintech company offering alternative banking solutions to banks and merchants, I contribute to the design, development, and maintenance of mobile and web applications. My role includes building scalable, secure, and user-friendly solutions tailored to financial services. I focus on end-to-end development processes, delivering high-performance systems that enhance user experiences and drive operational efficiency.",
-  //   company: "Payswitch Company Limited",
-  //   location: "Accra, Ghana",
-  //   from: "November, 2024",
-  //   to: "Present",
-  // },
+  {
+    title: "Fullstack Mobile & Web Developer",
+    description:
+      "At Payswitch, a fintech company offering alternative banking solutions to banks and merchants, I contribute to the design, development, and maintenance of mobile and web applications. My role includes building scalable, secure, and user-friendly solutions tailored to financial services. I focus on end-to-end development processes, delivering high-performance systems that enhance user experiences and drive operational efficiency.",
+    company: "Payswitch Company Limited",
+    location: "Accra, Ghana",
+    from: "January, 2024",
+    to: "Present",
+  },
   {
     title: "Full-Stack Developer",
     description:
@@ -26,7 +26,7 @@ export const experience_data = [
     company: "IHDM (Institute of Humanitarian and Disaster Management)",
     location: "Abuja, Nigeria",
     from: "January,2024",
-    to: "Present",
+    to: "April, 2025",
   },
   {
     title: "Frontend  Mobile & Web Engineer",
@@ -114,6 +114,11 @@ export const TechStack = {
   POSTGRESQL: "Postgresql",
   DJANGO: "Django",
   SELENIUM: "Selenium",
+  GO_LANG: "Go lang",
+  PHP: "Php",
+  LARAVEL: "Laravel",
+  DENO: "Deno",
+  WEBMAN: "Webman",
 };
 
 export const TeckStack = [
@@ -174,13 +179,20 @@ export const TeckStack = [
   {
     name: TechStack.SELENIUM,
   },
+  {
+    name: TechStack.GO_LANG,
+  },
+  { name: TechStack.PHP },
+  { name: TechStack.LARAVEL },
+  { name: TechStack.DENO },
+  { name: TechStack.WEBMAN },
 ];
 
 export const ProjectType = {
   WEB: "web",
   MOBILE: "mobile",
   DESKTOP: "desktop",
-  BACKEND: "backend"
+  BACKEND: "backend",
 };
 export const Project_data = [
   {
@@ -190,8 +202,10 @@ export const Project_data = [
     description:
       "luupli, the revolutionary social media platform that empowers genuine self-expression and promotes authentic human connections. Join a diverse global community where your voice takes center stage.",
     repo: "",
-    link: isIOS ?  "https://apps.apple.com/gb/app/luupli/id6463861554" : "https://play.google.com/store/apps/details?id=com.dev.luupli.uat&hl=en",
-    technologies: ["React-Native", "React-Query", "Firebase","Websocket"],
+    link: isIOS
+      ? "https://apps.apple.com/gb/app/luupli/id6463861554"
+      : "https://play.google.com/store/apps/details?id=com.dev.luupli.uat&hl=en",
+    technologies: ["React-Native", "React-Query", "Firebase", "Websocket"],
   },
   {
     type: ProjectType.WEB,
@@ -201,7 +215,13 @@ export const Project_data = [
       "Developed a comprehensive project management dashboard using Next.js for the frontend and Node.js for the backend. This full-stack application includes intuitive drag-and-drop functionality for seamless task organization, empowering teams to streamline their workflows efficiently.",
     repo: "https://github.com/maggickkw/TaskPulse",
     link: "https://task-pulse-dashboard.vercel.app/",
-    technologies: ["Next js","Node js", "Tailwind Css", "Redux Toolkit", "Redux"],
+    technologies: [
+      "Next js",
+      "Node js",
+      "Tailwind Css",
+      "Redux Toolkit",
+      "Redux",
+    ],
   },
   {
     type: ProjectType.WEB,
@@ -216,7 +236,7 @@ export const Project_data = [
   {
     type: ProjectType.MOBILE,
     name: "Fintech App",
-    projectImage: fintech ,
+    projectImage: fintech,
     description:
       "A clone of Revolut fintech app to enable users buy and sell crypto easily as well as added security with Face ID and other modern authentication methos.",
     repo: "https://github.com/maggickkw/crypto-app",
@@ -247,7 +267,14 @@ export const Project_data = [
       "Created an API for online shopping that links shops to items and uses JWT for secure authentication.",
     repo: "https://github.com/maggickkw/store-api",
     link: "https://store-api-mmr8.onrender.com/swagger-ui",
-    technologies: ["Python", "FLASK", "FLASK_SMOREST", "POSTGRESQL", "DOCKER", "JWT"],
+    technologies: [
+      "Python",
+      "FLASK",
+      "FLASK_SMOREST",
+      "POSTGRESQL",
+      "DOCKER",
+      "JWT",
+    ],
   },
   {
     type: ProjectType.MOBILE,
@@ -269,6 +296,4 @@ export const Project_data = [
     link: "",
     technologies: ["React-Native", "Expo", "Expo-Location", "React-Navigation"],
   },
-
-
 ];
