@@ -1,7 +1,7 @@
-import fav_places from "assets/images/my-fav-places.png";
+import tinytag from "assets/images/tinytag-mobile.png";
 import fintech from "assets/images/fintech.png";
 import luupli_legal from "assets/images/luupli_legal.png";
-import luupli from "assets/images/luupli-website.png";
+import ninepointfive from "assets/images/ninepointfive.png";
 import shop from "assets/images/shop-api.jpg";
 import Luupli_Banner from "assets/images/Luupli_banner.png";
 import TaskPulse from "../assets/images/dashboard.png";
@@ -225,13 +225,13 @@ export const Project_data = [
   },
   {
     type: ProjectType.WEB,
-    name: "Luupli website",
-    projectImage: luupli,
-    description:
-      "This is the official website of the luupli company based in the United Kingdom",
-    repo: "",
-    link: "https://www.luupli.com",
-    technologies: ["React js", "Tailwind Css", "React-router-dom", "Axios"],
+    name: "NinePointFive E-commerce Shop",
+    projectImage: ninepointfive,
+   repo: "",
+     description:
+      "An e-commerce website for NinePointFive, a premium clothing brand. The website features a sleek and modern design, built with Shopify Hydrogen, graphql, and Tailwind CSS. It offers a seamless shopping experience with easy navigation, product browsing, and secure checkout.",
+    link: "https://www.ninepointfive.store/",
+    technologies: ["Shopify Hydrogen", "Graphql", "React-router", "Tailwind Css"],
   },
   {
     type: ProjectType.MOBILE,
@@ -278,6 +278,16 @@ export const Project_data = [
   },
   {
     type: ProjectType.MOBILE,
+    name: "TinyTag",
+    projectImage: tinytag,
+    description:
+      "An app created to enable unicef volunteers register children in remote areas of Ghana for a birth certificate. Its offline first and works in low network connectivity areas. The data is synced to the server when the device is online.",
+    repo: "https://github.com/maggickkw/tinytag_mobile.git",
+    link: "",
+    technologies: ["React-Native", "Axios", "Async storage", "React-Navigation"],
+  },
+  {
+    type: ProjectType.MOBILE,
     name: "EDUANEPA",
     projectImage: EduanePa,
     description:
@@ -285,15 +295,5 @@ export const Project_data = [
     repo: "https://github.com/maggickkw/food-recipe-app",
     link: "",
     technologies: ["React-Native", "React-Navigation"],
-  },
-  {
-    type: ProjectType.MOBILE,
-    name: "my-fav-places",
-    projectImage: fav_places,
-    description:
-      "An app to record and cherish your favorite memories along with the places where they happened",
-    repo: "https://github.com/maggickkw/my-fav-places",
-    link: "",
-    technologies: ["React-Native", "Expo", "Expo-Location", "React-Navigation"],
-  },
+  }
 ];
