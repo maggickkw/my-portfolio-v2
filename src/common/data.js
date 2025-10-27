@@ -16,7 +16,7 @@ export const experience_data = [
       "At Payswitch, a fintech company offering alternative banking solutions to banks and merchants, I contribute to the design, development, and maintenance of mobile and web applications. My role includes building scalable, secure, and user-friendly solutions tailored to financial services. I focus on end-to-end development processes, delivering high-performance systems that enhance user experiences and drive operational efficiency.",
     company: "Payswitch Company Limited",
     location: "Accra, Ghana",
-    from: "January, 2024",
+    from: "November, 2024",
     to: "Present",
   },
   {
