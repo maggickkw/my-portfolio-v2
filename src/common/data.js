@@ -119,6 +119,8 @@ export const TechStack = {
   LARAVEL: "Laravel",
   DENO: "Deno",
   WEBMAN: "Webman",
+  JEST: "Jest",
+  RUST: "Rust",
 };
 
 export const TeckStack = [
@@ -186,6 +188,7 @@ export const TeckStack = [
   { name: TechStack.LARAVEL },
   { name: TechStack.DENO },
   { name: TechStack.WEBMAN },
+  { name: TechStack.RUST },
 ];
 
 export const ProjectType = {

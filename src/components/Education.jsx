@@ -4,8 +4,8 @@ import { education_data } from "../common/data";
 
 function Education() {
   return (
-    <div className="w-full h-full my-6 transition duration-300">
-      <TimeLine data={education_data} type={"education"} />
+    <div className="w-full h-full my-6">
+      <TimeLine data={education_data} type="education" />
     </div>
   );
 }

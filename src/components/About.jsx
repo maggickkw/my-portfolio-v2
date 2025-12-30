@@ -1,96 +1,132 @@
 import React, { useState } from "react";
-import { PiGraduationCapDuotone } from "react-icons/pi";
-import { BsDashLg } from "react-icons/bs";
-import { SlBadge } from "react-icons/sl";
+import { HiBriefcase, HiAcademicCap } from "react-icons/hi2";
+import { motion } from "framer-motion";
 import Experience from "./Experience";
 import Education from "./Education";
 
 const SELECTED_OPTION = {
-  EXPEERIENCE: "experience",
+  EXPERIENCE: "experience",
   EDUCATION: "education",
 };
 
 function About() {
-  const [selected, setSelected] = useState(SELECTED_OPTION.EXPEERIENCE);
+  const [selected, setSelected] = useState(SELECTED_OPTION.EXPERIENCE);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  };
 
   return (
     <section
       name="about"
-      className="max-w-4xl px-6 md:px-6 py-2 md:py-4 mx-auto  mt-2 md:mt-6 min-h-screen"
-      id="about_page">
-      <div className="font-Poppins text-center">
-        <p className="text-sm  md:text-base lg:text-lg flex text-center items-center  justify-center text-gray-400  dark:text-gray-200">
-          <BsDashLg className="text-gray-400 text-2xl dark:text-gray-300" />
-          What I can tell you
-        </p>
-        <h2 className="page-title">About Me</h2>
-        <p className="text-sm xs:text-base md:text-lg lg:text-xl  xm:leading-6  md:leading-10 text-center pt-4 text-gray-600  dark:text-gray-200">
-          Passionate full-stack web and mobile developer with a year of hands-on
-          experience, committed to architecting seamless digital solutions that
-          enchant users and propel innovation forward. Equipped with a profound
-          understanding of both frontend and backend technologies, I am
-          dedicated to orchestrating captivating user experiences that transcend
-          expectations. With a flair for design and a mastery of cutting-edge
-          development tools, I transform creative concepts into functional code,
-          ensuring every pixel aligns with the vision. From crafting responsive
-          web interfaces to optimizing backend architectures, I thrive in the
-          dynamic realm of technology. Driven by an insatiable curiosity for
-          machine learning, I eagerly explore its applications to enhance user
-          interactions and uncover new insights. Join me on this exhilarating
-          journey of code, creativity, and continuous growth, as we shape the
-          digital landscape together. #FullStackDeveloper 🌐📱
-          #MachineLearningEnthusiast 🤖✨
-        </p>
-      </div>
-      <div className="mt-10 flex flex-row mx-auto justify-center">
-        <button
-          className={
-            selected === SELECTED_OPTION.EXPEERIENCE
-              ? "btn-select btn-active"
-              : "btn-select btn-inActive"
-          }
-          onClick={() => setSelected(SELECTED_OPTION.EXPEERIENCE)}>
-          Experience{" "}
-          <span className="px-2">
-            {" "}
-            <SlBadge />{" "}
+      id="about_page"
+      className="py-24 md:py-32 px-6"
+    >
+      <motion.div
+        className="max-w-4xl mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+      >
+        {/* Section Header */}
+        <motion.div variants={itemVariants} className="text-center mb-16">
+          <span className="text-accent font-medium text-sm uppercase tracking-widest">
+            Get to know me
           </span>
-        </button>
-        <button
-          className={
-            selected === SELECTED_OPTION.EDUCATION
-              ? "btn-select  btn-active"
-              : "btn-select btn-inActive"
-          }
-          onClick={() => setSelected(SELECTED_OPTION.EDUCATION)}>
-          Education{" "}
-          <span className="px-2">
-            <PiGraduationCapDuotone />
-          </span>
-        </button>
-      </div>
-      <div>
-        {selected === SELECTED_OPTION.EXPEERIENCE ? (
-          <Experience />
-        ) : (
-          <Education />
-        )}
-      </div>
+          <h2 className="section-title mt-3">
+            About Me
+          </h2>
+        </motion.div>
+
+        {/* About Content */}
+        <motion.div
+          variants={itemVariants}
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16"
+        >
+          {/* Main About Card */}
+          <div className="md:col-span-2 glass p-8">
+            <h3 className="text-lg font-display font-medium text-white mb-4">
+              Building with purpose
+            </h3>
+            <p className="text-base-400 leading-relaxed mb-4">
+              I'm a full-stack developer focused on crafting digital solutions 
+              that make a real impact. From mobile apps to web platforms, I 
+              prioritize clean code and seamless user experiences.
+            </p>
+            <p className="text-base-400 leading-relaxed">
+              My work spans fintech, social media, e-commerce, and humanitarian 
+              tech—each project teaching me something new about solving real-world 
+              problems through thoughtful engineering.
+            </p>
+          </div>
+
+          {/* Stats Cards */}
+          <div className="flex flex-col gap-4">
+            <div className="glass p-6 flex-1 flex flex-col justify-center items-center text-center">
+              <span className="text-3xl font-display font-bold text-accent">4+</span>
+              <span className="text-base-500 text-sm mt-1">Years Experience</span>
+            </div>
+            <div className="glass p-6 flex-1 flex flex-col justify-center items-center text-center">
+              <span className="text-3xl font-display font-bold text-white">10+</span>
+              <span className="text-base-500 text-sm mt-1">Projects Completed</span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Experience/Education Toggle */}
+        <motion.div variants={itemVariants} className="flex justify-center mb-12">
+          <div className="glass p-1.5 inline-flex gap-1">
+            <button
+              onClick={() => setSelected(SELECTED_OPTION.EXPERIENCE)}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 ${
+                selected === SELECTED_OPTION.EXPERIENCE
+                  ? "bg-accent text-base-950"
+                  : "text-base-400 hover:text-white"
+              }`}
+            >
+              <HiBriefcase />
+              Experience
+            </button>
+            <button
+              onClick={() => setSelected(SELECTED_OPTION.EDUCATION)}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 ${
+                selected === SELECTED_OPTION.EDUCATION
+                  ? "bg-accent text-base-950"
+                  : "text-base-400 hover:text-white"
+              }`}
+            >
+              <HiAcademicCap />
+              Education
+            </button>
+          </div>
+        </motion.div>
+
+        {/* Content */}
+        <motion.div
+          key={selected}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          {selected === SELECTED_OPTION.EXPERIENCE ? <Experience /> : <Education />}
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
 
 export default About;
-
-// With over three years of dedicated experience in the field of software
-//           development, I have established myself as a proficient and skilled
-//           professional. my journey began with a degree in Computer Science,
-//           which equipped me with a solid foundation in theoretical concepts and
-//           problem-solving skills. As a Mobile Developer/Front-End Developer, I
-//           have adeptly woven technical expertise into crafting innovative and
-//           user-friendly applications. My comprehensive understanding of mobile
-//           platforms and front-end technologies has enabled me to create seamless
-//           user experiences that blend functionality with aesthetics. With a
-//           proven track record of successful projects, I continue to demonstrate
-//           my commitment to delivering high-quality software solutions that cater
-//           to both user needs and industry standards.

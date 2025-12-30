@@ -1,99 +1,123 @@
-import React from "react";
-import { BsCloudMoonFill, BsBriefcaseFill } from "react-icons/bs";
-import { FaUserTie } from "react-icons/fa";
-import { LuSunMoon } from "react-icons/lu";
-import { RiContactsFill } from "react-icons/ri";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
-import useTheme, { themeType } from "hooks/useTheme";
+import { HiMenuAlt4, HiX } from "react-icons/hi";
 
 function Nav() {
-  const { theme, changeTheme } = useTheme();
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "About", to: "about" },
+    { name: "Projects", to: "project" },
+    { name: "Contact", to: "contact" },
+  ];
 
   return (
-    <nav className="py-3 px-5 z-20 font-Poppins fixed top-0 w-screen bg-white dark:bg-black">
-      <div className="md:max-w-5xl mx-auto flex flex-row justify-between align-center">
-        <Link
-          to="home"
-          smooth={true}
-          offset={50}
-          duration={500}
-          className="text-lg xs:text-xl md:text-2xl lg:text-3xl  dark:text-white font-semibold cursor-pointer hover:scale-105 duration-200"
-        >
-          MAGGICK
-        </Link>
-        <div className="hidden md:block">
-          <ul className="flex flex-row gap-x-2 text-lg xs:text-xl md:text-xl lg:text-2xl  dark:text-white">
-            <li className="mx-3  hover:border-b-2 hover:border-b-black hover:cursor-pointer dark:hover:border-b-white">
-              <Link to="about" smooth={true} offset={-70} duration={500}>
-                About
-              </Link>
-            </li>
-            <li className="mx-3 hover:border-b-2 hover:border-b-black x-3  dark:hover:border-b-white">
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "py-4 bg-base-950/90 backdrop-blur-md border-b border-base-800/30"
+            : "py-6 bg-transparent"
+        }`}
+      >
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+          {/* Logo */}
+          <Link
+            to="home"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer group"
+          >
+            <span className="font-display text-xl md:text-2xl font-semibold text-white group-hover:text-accent transition-colors duration-300">
+              MAGGICK
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-10">
+            {navLinks.map((link) => (
               <Link
-                to="project"
+                key={link.to}
+                to={link.to}
                 smooth={true}
-                offset={-70}
+                offset={-80}
                 duration={500}
-                href="#project"
+                className="nav-link link-hover cursor-pointer text-sm tracking-wide"
               >
-                Project
+                {link.name}
               </Link>
-            </li>
-            <li className="mx-3  hover:border-b-2 hover:border-b-black x-3 dark:hover:border-b-white">
-              <Link
-                to="contact"
-                smooth={true}
-                offset={-70}
-                duration={500}
-                href="#contact"
-              >
-                Contact
-              </Link>
-            </li>
-            <li
-              onClick={changeTheme}
-              className="mx-3 ml-8   cursor-pointer text-2xl hover:scale-110 duration-300"
+            ))}
+            <a
+              href="./Wilberforce_Sedem_Haibor.pdf"
+              download={true}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary text-sm"
             >
-              {theme === themeType.DARK ? <LuSunMoon /> : <BsCloudMoonFill />}
-            </li>
-          </ul>
+              Resume
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden text-2xl text-base-300 hover:text-white transition-colors"
+          >
+            {mobileMenuOpen ? <HiX /> : <HiMenuAlt4 />}
+          </button>
         </div>
-        <div className="block md:hidden">
-          <ul className="flex flex-row gap-x-4 py-1 text-lg xm:text-2xl items-center justify-center dark:text-white">
-            <li className="hover:border-b-2 hover:border-b-black   dark:hover:border-b-white">
-              <Link to="about" smooth={true} offset={-70} duration={500}>
-                <FaUserTie />
-              </Link>
-            </li>
-            <li className=" hover:border-b-2 hover:border-b-black x-3  dark:hover:border-b-white">
-              <Link
-                to="project"
-                smooth={true}
-                offset={-70}
-                duration={500}
-                href="#project"
-              >
-                <BsBriefcaseFill />
-              </Link>
-            </li>
-            <li className="hover:border-b-2 hover:border-b-black x-3  dark:hover:border-b-white">
-              <Link
-                to="contact"
-                smooth={true}
-                offset={-70}
-                duration={500}
-                href="#contact"
-              >
-                <RiContactsFill />
-              </Link>
-            </li>
-            <li onClick={changeTheme} className="ml-4  cursor-pointer">
-              {theme === themeType.DARK ? <LuSunMoon /> : <BsCloudMoonFill />}
-            </li>
-          </ul>
+      </nav>
+
+      {/* Mobile Menu */}
+      <div
+        className={`fixed inset-0 z-40 md:hidden transition-all duration-500 ${
+          mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+      >
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-base-950/98 backdrop-blur-md"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+
+        {/* Menu Content */}
+        <div className="relative h-full flex flex-col items-center justify-center gap-8">
+          {navLinks.map((link, index) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              smooth={true}
+              offset={-80}
+              duration={500}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-2xl font-display font-medium text-base-200 hover:text-accent transition-colors cursor-pointer"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              {link.name}
+            </Link>
+          ))}
+          <a
+            href="./Wilberforce_Sedem_Haibor.pdf"
+            download={true}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-primary mt-4"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Resume
+          </a>
         </div>
       </div>
-    </nav>
+    </>
   );
 }
 

@@ -1,87 +1,80 @@
 import React from "react";
-import { FaUserGraduate } from "react-icons/fa";
-import { MdWork } from "react-icons/md";
+import { HiBriefcase, HiAcademicCap } from "react-icons/hi2";
+import { motion } from "framer-motion";
 
-const Item = ({ item, type }) => {
+const TimelineItem = ({ item, type, index, isLast }) => {
+  const isExperience = type === "experience";
+
   return (
-    <div className="col-span-4 w-full h-full">
-      <div className="w-full h-full p-4 font-Poppins ">
-        <p className="text-base xs:text-lg md:text-xl lg:text-xl text-gray-500 dark:text-gray-200">
-          {item?.company}
-        </p>
-        <p className="text-base xs:text-base md:text-lg lg:text-xl font-semibold py-1  dark:text-white">
-          {type === "experience" ? "💼" : "🎓"} {item?.title}
-        </p>
-        <p className="text-xs xs:text-sm md:text-base lg:text-lg text-gray-600 py-1  dark:text-gray-200">
-          {type === "experience" ? (
-            <>
-              📆 <span>{item?.from}</span> - <span>{item?.to}</span>
-            </>
-          ) : (
-            <>
-              📆 <span>{item?.to}</span>
-            </>
-          )}
-        </p>
-        <p className="text-sm xs:text-sm md:text-base lg:text-lg  text-gray-500 dark:text-gray-200">
-          {item?.description}
-        </p>
+    <motion.div
+      initial={{ opacity: 0, x: -15 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      className="relative pl-8 pb-8"
+    >
+      {/* Vertical Line */}
+      {!isLast && (
+        <div className="absolute left-[11px] top-10 w-px h-[calc(100%-20px)] bg-gradient-to-b from-base-700 to-transparent" />
+      )}
+
+      {/* Timeline Dot */}
+      <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-base-900 border border-base-700 flex items-center justify-center">
+        <div className="w-2 h-2 rounded-full bg-accent" />
       </div>
-    </div>
-  );
-};
 
-const EmptySide = ({ index, type }) => {
-  // const className = `dark:text-black`;
-  // const className = `animate-ping delay-[${100 * index}]`;
-
-  return (
-    <>
-      <div className="relative  col-span-1 w-full h-full hidden md:flex justify-center items-center">
-        <div className="h-full w-1 bg-gray-800  dark:bg-white"></div>
-        <div className="absolute w-10 h-10 rounded-full z-10 bg-gray-800text-center bg-black dark:bg-white flex items-center justify-center">
-          <span className="text-white dark:text-black hover:scale-110 duration-300">
-            {type === "education" ? <FaUserGraduate /> : <MdWork />}
+      {/* Card */}
+      <div className="glass p-5 hover:border-base-700/50 transition-all duration-300 group">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+          <div className="flex items-center gap-2">
+            <span className="text-accent text-sm">
+              {isExperience ? <HiBriefcase /> : <HiAcademicCap />}
+            </span>
+            <h4 className="font-display font-medium text-white group-hover:text-accent transition-colors">
+              {item?.title}
+            </h4>
+          </div>
+          <span className="text-xs text-base-500">
+            {isExperience ? (
+              <>
+                {item?.from} — {item?.to}
+              </>
+            ) : (
+              item?.to || item?.from
+            )}
           </span>
         </div>
+
+        {/* Company & Location */}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
+          <span className="text-base-300 text-sm font-medium">{item?.company}</span>
+          {item?.location && (
+            <span className="text-base-500 text-xs">📍 {item?.location}</span>
+          )}
+        </div>
+
+        {/* Description */}
+        {item?.description && (
+          <p className="text-base-500 text-sm leading-relaxed">{item?.description}</p>
+        )}
       </div>
-    </>
-  );
-};
-
-const RightSide = ({ item, index, type }) => {
-  return (
-    <>
-      <div className="col-span-4 w-full h-full hidden md:block"></div>
-      <EmptySide index={index} type={type} />
-      <Item item={item} type={type} />
-    </>
-  );
-};
-
-const LeftSide = ({ item, index, type }) => {
-  return (
-    <>
-      {/* first stack */}
-      <Item item={item} type={type} />
-      <EmptySide index={index} type={type} />
-      <div className="col-span-4  hidden md:block w-full h-full"></div>
-    </>
+    </motion.div>
   );
 };
 
 function TimeLine({ data, type }) {
   return (
-    <div className="max-w-6xl mx-auto w-full md:grid grid-cols-9">
-      {data?.map((item, index) => {
-        if (index % 2 === 0) {
-          return <LeftSide item={item} key={index} index={index} type={type} />;
-        } else {
-          return (
-            <RightSide item={item} key={index} index={index} type={type} />
-          );
-        }
-      })}
+    <div className="max-w-2xl mx-auto">
+      {data?.map((item, index) => (
+        <TimelineItem
+          key={index}
+          item={item}
+          type={type}
+          index={index}
+          isLast={index === data.length - 1}
+        />
+      ))}
     </div>
   );
 }

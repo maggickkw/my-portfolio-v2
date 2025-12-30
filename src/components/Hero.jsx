@@ -1,82 +1,157 @@
-import React, { useEffect } from "react";
-import { FaCloudDownloadAlt } from "react-icons/fa";
-import { TeckStack } from "../common/data"; // Ensure the spelling is correct
+import React from "react";
+import { HiArrowDown } from "react-icons/hi2";
+import { TeckStack } from "../common/data";
 import StackIcon from "../common/StackIcon";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 
 function Hero() {
-  const controls = useAnimation();
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      // Trigger the staggered animation after 3 seconds
-      controls.start({
-        opacity: 1,
-        transition: { staggerChildren: 0.5 }, // Stagger child animations by 0.5 seconds
-      });
-    }, 5000); // Delay for 3 seconds
-
-    return () => clearTimeout(timer);
-  }, [controls]);
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
 
   return (
     <motion.section
       name="home"
-      className="max-w-5xl h-screen w-full mx-auto flex flex-col justify-center items-center"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
+      className="min-h-screen flex flex-col justify-center items-center px-6 pt-24"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
     >
-      <div className="px-6 py-6 flex justify-between items-center">
-        <div className="h-full text-center mx-auto mt-6">
-          <div className="font-Poppins max-w-2xl">
-            <p className="text-base xs:text-lg md:text-xl lg:text-2xl font-bold dark:text-white">
-              <span className="animate-bounce pr-1">👋</span>
-              Hello I'm
-            </p>
-            <h2 className="text-2xl xs:text-3xl md:text-4xl lg:text-5xl font-black dark:text-white">
-              Wilberforce Sedem Haibor
-            </h2>
-            <p className="text-base xs:text-l md:text-xl lg:text-2xl text-gray-600 my-5 dark:text-gray-200">
-              A Full Stack Mobile & Web Engineer, Automations Engineer & Machine Learning Enthusiast conversant with the evolvement of technology
-            </p>
-          </div>
-          <div className="mt-6 flex flex-row items-center justify-center font-Poppins">
-            <a
-              href="./Wilberforce_Sedem_Haibor.pdf"
-              download={true}
-              target="__blank"
-              className="mx-4 border-2 text-base xs:text-lg md:text-xl lg:text-2xl gap-x-2 border-black dark:border-white p-1 px-6 rounded-3xl flex flex-row items-center bg-black text-white hover:bg-white hover:text-black transition ease-in-out duration-300"
-            >
-              <span> Download CV</span>
-              <FaCloudDownloadAlt />
-            </a>
-          </div>
-        </div>
-      </div>
+      <div className="max-w-4xl mx-auto text-center">
+        {/* Status Badge */}
+        <motion.div
+          variants={itemVariants}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-base-900/50 border border-base-800/50 mb-8"
+        >
+          <span className="w-2 h-2 rounded-full bg-highlight animate-pulse" />
+          <span className="text-sm text-base-400">
+            Available for opportunities
+          </span>
+        </motion.div>
 
-      <div
-        className="font-Poppins mt-20 flex flex-col md:flex-row items-center justify-center"
-        initial={{ opacity: 0 }}
-        animate={controls}
-      >
-        <h3 className="text-xl md:font-bold text-center md:text-2xl md:border-r-2 md:mr-4 border-black dark:border-white w-48 dark:text-white">
-          Tech Stack
-        </h3>
-        <div className="w-full my-4 flex flex-wrap gap-2 px-10 md:px-0">
-          {TeckStack?.map((stack, index) => (
+        {/* Main Heading */}
+        <motion.h1
+          variants={itemVariants}
+          className="text-4xl xs:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-[1.1] mb-6"
+        >
+          Hi, I'm{" "}
+          <span className="gradient-text">Wilberforce</span>
+        </motion.h1>
+
+        <motion.p
+          variants={itemVariants}
+          className="text-xl md:text-2xl text-base-400 font-display font-medium mb-4"
+        >
+          Full Stack Engineer
+        </motion.p>
+
+        {/* Subtitle */}
+        <motion.p
+          variants={itemVariants}
+          className="text-base md:text-lg text-base-500 max-w-xl mx-auto mb-10 leading-relaxed"
+        >
+          I craft seamless mobile and web applications with modern technologies.
+          Passionate about clean code, great UX, and meaningful digital experiences.
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+        >
+          <Link
+            to="project"
+            smooth={true}
+            offset={-80}
+            duration={500}
+            className="btn-primary cursor-pointer"
+          >
+            View My Work
+          </Link>
+          <Link
+            to="contact"
+            smooth={true}
+            offset={-80}
+            duration={500}
+            className="btn-outline cursor-pointer"
+          >
+            Get In Touch
+          </Link>
+        </motion.div>
+
+        {/* Tech Stack */}
+        <motion.div
+          variants={itemVariants}
+          className="glass p-6 md:p-8 max-w-3xl mx-auto"
+        >
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <div className="md:border-r md:border-base-700/50 md:pr-6 text-center md:text-left">
+              <h3 className="font-display font-medium text-white text-base">
+                Tech Stack
+              </h3>
+              <p className="text-base-500 text-sm">Tools I use</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {TeckStack?.slice(0, 12).map((stack, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5 + index * 0.05, duration: 0.3 }}
+                  whileHover={{ scale: 1.1 }}
+                  className="p-2.5 rounded-xl bg-base-800/30 hover:bg-base-800/50 transition-colors cursor-pointer"
+                  title={stack?.name}
+                >
+                  <StackIcon stack={stack.name} />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="mt-16"
+        >
+          <Link
+            to="about"
+            smooth={true}
+            offset={-80}
+            duration={500}
+            className="inline-flex flex-col items-center gap-2 cursor-pointer group"
+          >
+            <span className="text-xs text-base-500 group-hover:text-base-400 transition-colors uppercase tracking-widest">
+              Scroll
+            </span>
             <motion.div
-              key={index}
-              title={stack?.name}
-              initial={{ opacity: 0 }} // Icons start invisible
-              animate={{ opacity: 1 }} // Icons fade in
-              transition={{ duration: 1, delay: index * 0.5 }} // Delay for each icon based on its index
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="text-base-500 group-hover:text-accent transition-colors"
             >
-              <StackIcon stack={stack.name}  />
+              <HiArrowDown />
             </motion.div>
-          ))}
-        </div>
+          </Link>
+        </motion.div>
       </div>
     </motion.section>
   );
