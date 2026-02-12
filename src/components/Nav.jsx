@@ -15,9 +15,9 @@ function Nav() {
   }, []);
 
   const navLinks = [
-    { name: "About", to: "about" },
-    { name: "Projects", to: "project" },
-    { name: "Contact", to: "contact" },
+    { number: "01", name: "About", to: "about" },
+    { number: "02", name: "Projects", to: "project" },
+    { number: "03", name: "Contact", to: "contact" },
   ];
 
   return (
@@ -25,25 +25,22 @@ function Nav() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "py-4 bg-base-950/90 backdrop-blur-md border-b border-base-800/30"
-            : "py-6 bg-transparent"
+            ? "py-3 bg-base-950/85 backdrop-blur-lg shadow-lg shadow-base-950/50"
+            : "py-5 bg-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-          {/* Logo */}
+        <div className="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between">
           <Link
             to="home"
             smooth={true}
             duration={500}
-            className="cursor-pointer group"
+            className="cursor-pointer"
           >
-            <span className="font-display text-xl md:text-2xl font-semibold text-white group-hover:text-accent transition-colors duration-300">
-              MAGGICK
+            <span className="font-display text-lg font-bold text-accent hover:text-accent-light transition-colors duration-300">
+              maggick.
             </span>
           </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -51,9 +48,12 @@ function Nav() {
                 smooth={true}
                 offset={-80}
                 duration={500}
-                className="nav-link link-hover cursor-pointer text-sm tracking-wide"
+                className="nav-link cursor-pointer"
               >
-                {link.name}
+                <span className="text-accent font-mono text-xs">
+                  {link.number}.
+                </span>{" "}
+                <span className="text-[13px]">{link.name}</span>
               </Link>
             ))}
             <a
@@ -61,37 +61,30 @@ function Nav() {
               download={true}
               target="_blank"
               rel="noreferrer"
-              className="btn-primary text-sm"
+              className="btn-primary text-xs py-2 px-4"
             >
               Resume
             </a>
           </div>
-
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-2xl text-base-300 hover:text-white transition-colors"
+            className="md:hidden text-2xl text-base-300 hover:text-accent transition-colors"
           >
             {mobileMenuOpen ? <HiX /> : <HiMenuAlt4 />}
           </button>
         </div>
       </nav>
-
-      {/* Mobile Menu */}
       <div
         className={`fixed inset-0 z-40 md:hidden transition-all duration-500 ${
           mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
-        {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-base-950/98 backdrop-blur-md"
+          className="absolute inset-0 bg-base-950/95 backdrop-blur-lg"
           onClick={() => setMobileMenuOpen(false)}
         />
-
-        {/* Menu Content */}
-        <div className="relative h-full flex flex-col items-center justify-center gap-8">
-          {navLinks.map((link, index) => (
+        <div className="relative h-full flex flex-col items-center justify-center gap-10">
+          {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
@@ -99,10 +92,14 @@ function Nav() {
               offset={-80}
               duration={500}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-2xl font-display font-medium text-base-200 hover:text-accent transition-colors cursor-pointer"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="cursor-pointer text-center group"
             >
-              {link.name}
+              <span className="block text-accent font-mono text-sm mb-1">
+                {link.number}.
+              </span>
+              <span className="text-lg font-body text-base-200 group-hover:text-accent transition-colors">
+                {link.name}
+              </span>
             </Link>
           ))}
           <a

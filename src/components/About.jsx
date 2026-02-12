@@ -9,121 +9,111 @@ const SELECTED_OPTION = {
   EDUCATION: "education",
 };
 
+const recentTech = [
+  "JavaScript (ES6+)",
+  "TypeScript",
+  "React / React Native",
+  "Node.js / Express",
+  "Python / Django",
+  "Go",
+  "Rust",
+  "PHP / Laravel",
+  "PostgreSQL",
+  "Firebase",
+  "Docker",
+  "Electron",
+  "Deno",
+  "Webman",
+  "Selenium",
+  "Machine Learning",
+];
+
 function About() {
   const [selected, setSelected] = useState(SELECTED_OPTION.EXPERIENCE);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
-    <section
-      name="about"
-      id="about_page"
-      className="py-24 md:py-32 px-6"
-    >
+    <section name="about" id="about_page" className="py-24 md:py-32">
       <motion.div
-        className="max-w-4xl mx-auto"
-        initial="hidden"
-        whileInView="visible"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
+        transition={{ duration: 0.5 }}
       >
-        {/* Section Header */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <span className="text-accent font-medium text-sm uppercase tracking-widest">
-            Get to know me
-          </span>
-          <h2 className="section-title mt-3">
+        <div className="flex items-center gap-4 mb-10">
+          <h2 className="flex items-center gap-2 font-display font-semibold text-2xl md:text-[28px] text-base-200 whitespace-nowrap">
+            <span className="font-mono font-normal text-accent text-lg md:text-xl">
+              01.
+            </span>
             About Me
           </h2>
-        </motion.div>
+          <div className="h-px bg-base-800 flex-1 max-w-[300px]" />
+        </div>
 
-        {/* About Content */}
-        <motion.div
-          variants={itemVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16"
-        >
-          {/* Main About Card */}
-          <div className="md:col-span-2 glass p-8">
-            <h3 className="text-lg font-display font-medium text-white mb-4">
-              Building with purpose
-            </h3>
-            <p className="text-base-400 leading-relaxed mb-4">
-              I'm a full-stack developer focused on crafting digital solutions 
-              that make a real impact. From mobile apps to web platforms, I 
-              prioritize clean code and seamless user experiences.
-            </p>
-            <p className="text-base-400 leading-relaxed">
-              My work spans fintech, social media, e-commerce, and humanitarian 
-              tech—each project teaching me something new about solving real-world 
-              problems through thoughtful engineering.
-            </p>
-          </div>
+        <div className="max-w-2xl mb-20">
+          <p className="text-base-400 leading-relaxed mb-4">
+            I turn complex business problems into clean, production-ready web
+            and mobile products.
+          </p>
+          <p className="text-base-400 leading-relaxed mb-4">
+            I care about speed, scalability, and maintainable systems that hold
+            up under real usage.
+          </p>
+          <p className="text-base-400 leading-relaxed mb-4">
+            Core technologies I use regularly:
+          </p>
 
-          {/* Stats Cards */}
-          <div className="flex flex-col gap-4">
-            <div className="glass p-6 flex-1 flex flex-col justify-center items-center text-center">
-              <span className="text-3xl font-display font-bold text-accent">4+</span>
-              <span className="text-base-500 text-sm mt-1">Years Experience</span>
-            </div>
-            <div className="glass p-6 flex-1 flex flex-col justify-center items-center text-center">
-              <span className="text-3xl font-display font-bold text-white">10+</span>
-              <span className="text-base-500 text-sm mt-1">Projects Completed</span>
-            </div>
-          </div>
-        </motion.div>
+          <ul className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-2 mt-5 max-w-lg">
+            {recentTech.map((tech) => (
+              <li
+                key={tech}
+                className="flex items-center gap-2 text-[13px] text-base-400 font-mono"
+              >
+                <span className="text-accent text-xs">▹</span>
+                {tech}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        {/* Experience/Education Toggle */}
-        <motion.div variants={itemVariants} className="flex justify-center mb-12">
-          <div className="glass p-1.5 inline-flex gap-1">
+        <div>
+          <div className="flex gap-2 mb-10">
             <button
               onClick={() => setSelected(SELECTED_OPTION.EXPERIENCE)}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 ${
+              className={`flex items-center gap-2 px-4 py-2.5 text-sm rounded transition-all duration-200 ${
                 selected === SELECTED_OPTION.EXPERIENCE
-                  ? "bg-accent text-base-950"
-                  : "text-base-400 hover:text-white"
+                  ? "text-accent bg-accent/[0.08] border border-accent/20"
+                  : "text-base-500 border border-transparent hover:text-base-300"
               }`}
             >
-              <HiBriefcase />
-              Experience
+              <HiBriefcase className="text-base" />
+              <span className="font-mono text-xs">Experience</span>
             </button>
             <button
               onClick={() => setSelected(SELECTED_OPTION.EDUCATION)}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 ${
+              className={`flex items-center gap-2 px-4 py-2.5 text-sm rounded transition-all duration-200 ${
                 selected === SELECTED_OPTION.EDUCATION
-                  ? "bg-accent text-base-950"
-                  : "text-base-400 hover:text-white"
+                  ? "text-accent bg-accent/[0.08] border border-accent/20"
+                  : "text-base-500 border border-transparent hover:text-base-300"
               }`}
             >
-              <HiAcademicCap />
-              Education
+              <HiAcademicCap className="text-base" />
+              <span className="font-mono text-xs">Education</span>
             </button>
           </div>
-        </motion.div>
 
-        {/* Content */}
-        <motion.div
-          key={selected}
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          {selected === SELECTED_OPTION.EXPERIENCE ? <Experience /> : <Education />}
-        </motion.div>
+          <motion.div
+            key={selected}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {selected === SELECTED_OPTION.EXPERIENCE ? (
+              <Experience />
+            ) : (
+              <Education />
+            )}
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   );

@@ -7,59 +7,66 @@ import Luupli_Banner from "assets/images/Luupli_banner.png";
 import TaskPulse from "../assets/images/dashboard.png";
 import { isIOS } from "react-device-detect";
 
-import EduanePa from "assets/images/EduanePa.png";
-
 export const experience_data = [
   {
-    title: "Fullstack Mobile & Web Developer",
+    title: "Technical Manager",
     description:
-      "At Payswitch, a fintech company offering alternative banking solutions to banks and merchants, I contribute to the design, development, and maintenance of mobile and web applications. My role includes building scalable, secure, and user-friendly solutions tailored to financial services. I focus on end-to-end development processes, delivering high-performance systems that enhance user experiences and drive operational efficiency.",
-    company: "Payswitch Company Limited",
+      "Led the technical retraining and transition of the mobile development team from Flutter to React Native. Conducted technical assessments, code reviews, and architecture evaluations for prospective engineering hires. Designed and led technical interviews focused on React.js and Next.js. Mentored developers through hands-on code reviews, technical guidance, and knowledge-sharing sessions.",
+    company: "AutomatedPros",
+    location: "Remote",
+    from: "Aug 2025",
+    to: "Jan 2026",
+  },
+  {
+    title: "Full-stack Developer",
+    description:
+      "Developed and maintained a Loan Management System — a scalable backend platform automating loan processing, credit decisioning, and portfolio management. Revamped the company's checkout system using Webman PHP for higher performance and lower latency. Managed the settlement middleware API (Rust) ensuring seamless integration between transaction processing and financial systems. Built a School Management System using Laravel and Next.js.",
+    company: "PaySwitch Company Limited",
     location: "Accra, Ghana",
-    from: "November, 2024",
-    to: "Present",
+    from: "Nov 2024",
+    to: "Jan 2026",
   },
   {
-    title: "Full-Stack Developer",
+    title: "Frontend Developer",
     description:
-      "Rebuilding and currently Managing the IHDM and IGPCM portals, for data records and exam registration.",
-    company: "IHDM (Institute of Humanitarian and Disaster Management)",
-    location: "Abuja, Nigeria",
-    from: "January,2024",
-    to: "April, 2025",
-  },
-  {
-    title: "Frontend  Mobile & Web Engineer",
-    description:
-      "My responsibilities  include particpation in the development and maintenance of Luupli mobile application and all web functions including the website. I participate in technical architecture and design of mobile and web applications, ensuring scalability, performance, and adherence to coding standards the entire application development lifecycle, producing functional mobile and web apps with clean code and designing user interfaces for better user experiences.",
+      "Participated in the development and maintenance of the Luupli mobile application and all web functions. Contributed to technical architecture and design of mobile and web applications, ensuring scalability, performance, and adherence to coding standards throughout the entire development lifecycle.",
     company: "Luupli",
     location: "London, UK",
-    from: "July,2023",
+    from: "Jul 2023",
     to: "Present",
   },
   {
-    title: "Teaching Aide",
+    title: "Full-stack Developer",
     description:
-      "My task as a teaching aide and Mentor at Code the dream involved helping students understand React js and Javascript and helping them with assignments that they may be having problems with. I teach them best practices and helped them troubleshoot their code in the cases where bugs arose.",
-    company: "Code The Dream",
-    location: "San Francisco, CA, USA",
-    from: "July,2023",
-    to: "Feb, 2024",
+      "Built and managed the IHDM and IGPCM student portals for data records and exam registration.",
+    company: "IHDM (Institute of Humanitarian and Disaster Management)",
+    location: "Abuja, Nigeria",
+    from: "Jan 2024",
+    to: "Mar 2025",
   },
   {
-    title: "Technician",
+    title: "Volunteer Staff",
     description:
-      "I assisted with fixing system and logistical errors for the Ghana Card roll-out. ",
-    company: "National Identification Authority",
+      "Reviewed student code and assisted them with areas of struggle. Helped students understand React.js and JavaScript, taught best practices, and helped troubleshoot bugs.",
+    company: "Code The Dream",
+    location: "San Francisco, CA, USA",
+    from: "Jul 2023",
+    to: "Feb 2024",
+  },
+  {
+    title: "Software Engineering Technician",
+    description:
+      "Worked as a software technician during the period of the mass registration for the Ghana Card, assisting with system and logistical issues during the nationwide roll-out.",
+    company: "National Identification Authority (NIA)",
     location: "Accra, Ghana",
-    from: "November, 2018",
-    to: "November, 2020",
+    from: "Sep 2018",
+    to: "Jul 2020",
   },
 ];
 
 export const education_data = [
   {
-    title: "BSC Computer Science",
+    title: "BSc Computer Science",
     description: "",
     company: "Ghana Institute of Management and Public Administration (GIMPA)",
     location: "Accra, Ghana",
@@ -69,12 +76,11 @@ export const education_data = [
   {
     title: "CS 50 (Online Introductory Program)",
     description: "",
-    company: "Havard University",
+    company: "Harvard University",
     location: "Massachusetts, Cambridge",
     from: "",
     to: "2021",
   },
-
   {
     title: "Full Stack Development",
     description: "",
@@ -83,11 +89,10 @@ export const education_data = [
     from: "",
     to: "2021",
   },
-
   {
-    title: "BSc Agricultural Science.",
+    title: "BSc Agricultural Science",
     description: "",
-    company: "University of Ghana,",
+    company: "University of Ghana",
     location: "Accra, Ghana",
     from: "2013",
     to: "2017",
@@ -99,7 +104,7 @@ export const TechStack = {
   CSS: "css",
   JAVASCRIPT: "javascript",
   NODEJS: "NodeJs",
-  TYPESCRIPT: "typescript",
+  TYPESCRIPT: "Typescript",
   REACTJS: "ReactJS",
   REACTNATIVE: "ReactNative",
   ELECTRON: "ElectronJS",
@@ -230,8 +235,8 @@ export const Project_data = [
     type: ProjectType.WEB,
     name: "NinePointFive E-commerce Shop",
     projectImage: ninepointfive,
-   repo: "",
-     description:
+    repo: "",
+    description:
       "An e-commerce website for NinePointFive, a premium clothing brand. The website features a sleek and modern design, built with Shopify Hydrogen, graphql, and Tailwind CSS. It offers a seamless shopping experience with easy navigation, product browsing, and secure checkout.",
     link: "https://www.ninepointfive.store/",
     technologies: ["Shopify Hydrogen", "Graphql", "React-router", "Tailwind Css"],
@@ -263,20 +268,21 @@ export const Project_data = [
     technologies: ["Markdown"],
   },
   {
-    type: ProjectType.WEB,
-    name: "Shop-API",
+    type: ProjectType.BACKEND,
+    name: "Kingsway Foods Backend",
     projectImage: shop,
     description:
-      "Created an API for online shopping that links shops to items and uses JWT for secure authentication.",
-    repo: "https://github.com/maggickkw/store-api",
-    link: "https://store-api-mmr8.onrender.com/swagger-ui",
+      "Built a production-grade food delivery backend using Clean Architecture, handling real-time logistics, wallet systems, gamification, and multi-role operations at scale.",
+    repo: "",
+    link: "",
     technologies: [
-      "Python",
-      "FLASK",
-      "FLASK_SMOREST",
+      "Go",
+      "Fiber",
       "POSTGRESQL",
-      "DOCKER",
-      "JWT",
+      "Redis",
+      "WebSockets",
+      "gRPC",
+      "Clean Architecture",
     ],
   },
   {
@@ -284,19 +290,19 @@ export const Project_data = [
     name: "TinyTag",
     projectImage: tinytag,
     description:
-      "An app created to enable unicef volunteers register children in remote areas of Ghana for a birth certificate. Its offline first and works in low network connectivity areas. The data is synced to the server when the device is online.",
+      "A mobile app built for a UNICEF contest to help register children in remote areas with an offline-first workflow and reliable sync when connectivity returns.",
     repo: "https://github.com/maggickkw/tinytag_mobile.git",
     link: "",
     technologies: ["React-Native", "Axios", "Async storage", "React-Navigation"],
   },
   {
-    type: ProjectType.MOBILE,
-    name: "EDUANEPA",
-    projectImage: EduanePa,
+    type: ProjectType.BACKEND,
+    name: "TinyTag API",
+    projectImage: tinytag,
     description:
-      "Food recipe app with search functionality to help you make the tastiest meals no matter the mood or time of day",
-    repo: "https://github.com/maggickkw/food-recipe-app",
+      "Backend system for UNICEF-backed child registration platform enabling offline-first data collection and secure synchronization from remote regions.",
+    repo: "",
     link: "",
-    technologies: ["React-Native", "React-Navigation"],
-  }
+    technologies: ["Node.js", "TypeScript", "Express", "MongoDB", "JWT Auth"],
+  },
 ];

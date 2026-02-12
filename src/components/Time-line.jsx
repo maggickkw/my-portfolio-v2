@@ -1,62 +1,47 @@
 import React from "react";
-import { HiBriefcase, HiAcademicCap } from "react-icons/hi2";
 import { motion } from "framer-motion";
 
-const TimelineItem = ({ item, type, index, isLast }) => {
+const TimelineItem = ({ item, type, index }) => {
   const isExperience = type === "experience";
+  let dateLabel = "";
+  if (isExperience) {
+    dateLabel = `${item?.from} — ${item?.to}`;
+  } else {
+    if (item?.from && item?.to) {
+      dateLabel = `${item.from} — ${item.to}`;
+    } else {
+      dateLabel = item?.to || item?.from || "";
+    }
+  }
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: -15 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="relative pl-8 pb-8"
+      transition={{ duration: 0.3, delay: index * 0.05 }}
+      className="group relative grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-1 sm:gap-6 p-4 sm:p-5 -mx-4 sm:-mx-5 rounded-lg hover:bg-base-850/50 transition-all duration-200 cursor-default"
     >
-      {/* Vertical Line */}
-      {!isLast && (
-        <div className="absolute left-[11px] top-10 w-px h-[calc(100%-20px)] bg-gradient-to-b from-base-700 to-transparent" />
-      )}
-
-      {/* Timeline Dot */}
-      <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-base-900 border border-base-700 flex items-center justify-center">
-        <div className="w-2 h-2 rounded-full bg-accent" />
+      <div className="text-xs font-mono text-base-500 uppercase tracking-wide sm:pt-1 mb-1 sm:mb-0 whitespace-nowrap">
+        {dateLabel}
       </div>
-
-      {/* Card */}
-      <div className="glass p-5 hover:border-base-700/50 transition-all duration-300 group">
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-          <div className="flex items-center gap-2">
-            <span className="text-accent text-sm">
-              {isExperience ? <HiBriefcase /> : <HiAcademicCap />}
-            </span>
-            <h4 className="font-display font-medium text-white group-hover:text-accent transition-colors">
-              {item?.title}
-            </h4>
-          </div>
-          <span className="text-xs text-base-500">
-            {isExperience ? (
-              <>
-                {item?.from} — {item?.to}
-              </>
-            ) : (
-              item?.to || item?.from
-            )}
+      <div>
+        <h4 className="font-display font-medium text-base-200 group-hover:text-accent transition-colors text-[15px] leading-snug">
+          {item?.title}
+          <span className="text-accent"> · </span>
+          <span className="text-accent/80 text-sm font-body">
+            {item?.company}
           </span>
-        </div>
+        </h4>
 
-        {/* Company & Location */}
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
-          <span className="text-base-300 text-sm font-medium">{item?.company}</span>
-          {item?.location && (
-            <span className="text-base-500 text-xs">📍 {item?.location}</span>
-          )}
-        </div>
+        {item?.location && (
+          <p className="text-xs text-base-500 mt-1.5">{item.location}</p>
+        )}
 
-        {/* Description */}
         {item?.description && (
-          <p className="text-base-500 text-sm leading-relaxed">{item?.description}</p>
+          <p className="text-sm text-base-400 leading-relaxed mt-2">
+            {item.description}
+          </p>
         )}
       </div>
     </motion.div>
@@ -65,14 +50,13 @@ const TimelineItem = ({ item, type, index, isLast }) => {
 
 function TimeLine({ data, type }) {
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-3xl">
       {data?.map((item, index) => (
         <TimelineItem
           key={index}
           item={item}
           type={type}
           index={index}
-          isLast={index === data.length - 1}
         />
       ))}
     </div>

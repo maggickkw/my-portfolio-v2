@@ -105,78 +105,58 @@ function Contact() {
     }
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
     <>
-      <section id="contact" name="contact" className="py-24 md:py-32 px-6">
+      <section id="contact" name="contact" className="py-24 md:py-32">
         <motion.div
-          className="max-w-4xl mx-auto"
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
+          transition={{ duration: 0.5 }}
         >
-          {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <span className="text-accent font-medium text-sm uppercase tracking-widest">
-              Let's Connect
-            </span>
-            <h2 className="section-title mt-3">
+          <div className="flex items-center gap-4 mb-6">
+            <h2 className="flex items-center gap-2 font-display font-semibold text-2xl md:text-[28px] text-base-200 whitespace-nowrap">
+              <span className="font-mono font-normal text-accent text-lg md:text-xl">
+                03.
+              </span>
               Get In Touch
             </h2>
-            <p className="section-subtitle max-w-md mx-auto mt-4">
-              Have a project in mind? I'd love to hear from you.
-            </p>
-          </motion.div>
+            <div className="h-px bg-base-800 flex-1 max-w-[300px]" />
+          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-            {/* Contact Info */}
-            <motion.div variants={itemVariants} className="lg:col-span-2 space-y-4">
-              {/* Info Cards */}
-              <div className="glass p-5 space-y-3">
+          <p className="text-base-400 leading-relaxed max-w-lg mb-12">
+            I'm currently open to new opportunities. Whether you have a project
+            in mind or just want to say hello, I'd love to hear from you.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            <div className="lg:col-span-2 space-y-6">
+              <div className="space-y-1">
                 {contactInfo.map((info) => (
                   <a
                     key={info.label}
                     href={info.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-base-800/30 transition-colors group"
+                    className="flex items-center gap-3 p-3 rounded-lg hover:bg-base-900/60 transition-colors group"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-base-800/50 flex items-center justify-center text-accent">
-                      <info.icon className="text-lg" />
-                    </div>
+                    <info.icon className="text-lg text-accent shrink-0" />
                     <div>
-                      <p className="text-base-500 text-xs">{info.label}</p>
-                      <p className="text-base-200 text-sm font-medium group-hover:text-accent transition-colors">
+                      <p className="text-xs text-base-500 font-mono">
+                        {info.label}
+                      </p>
+                      <p className="text-sm text-base-300 group-hover:text-accent transition-colors">
                         {info.value}
                       </p>
                     </div>
                   </a>
                 ))}
               </div>
-
-              {/* Socials */}
-              <div className="glass p-5">
-                <h4 className="text-white font-display font-medium text-sm mb-4">
-                  Follow Me
-                </h4>
-                <div className="flex gap-2">
+              <div>
+                <p className="text-xs font-mono text-base-500 mb-3 px-3">
+                  Find me online
+                </p>
+                <div className="flex gap-1 px-1">
                   {socials.map((social) => (
                     <a
                       key={social.label}
@@ -191,12 +171,10 @@ function Contact() {
                   ))}
                 </div>
               </div>
-            </motion.div>
-
-            {/* Contact Form */}
-            <motion.div variants={itemVariants} className="lg:col-span-3">
-              <div className="glass p-6 md:p-8">
-                <h4 className="text-lg font-display font-medium text-white mb-6">
+            </div>
+            <div className="lg:col-span-3">
+              <div className="border border-base-800/50 rounded-lg p-6 md:p-8">
+                <h4 className="text-base-200 font-display font-medium text-lg mb-6">
                   Send a message
                 </h4>
                 <Formik
@@ -223,7 +201,7 @@ function Contact() {
                           placeholder="Your name"
                         />
                         {errors.name && touched.name && (
-                          <span className="text-xs text-red-400 pl-2 pt-1">
+                          <span className="text-xs text-red-400/80 pl-1 pt-1 font-mono">
                             {errors.name}
                           </span>
                         )}
@@ -239,7 +217,7 @@ function Contact() {
                           placeholder="Your email"
                         />
                         {errors.email && touched.email && (
-                          <span className="text-xs text-red-400 pl-2 pt-1">
+                          <span className="text-xs text-red-400/80 pl-1 pt-1 font-mono">
                             {errors.email}
                           </span>
                         )}
@@ -247,14 +225,14 @@ function Contact() {
 
                       <div>
                         <textarea
-                          className="input-field min-h-[120px] resize-none"
+                          className="input-field min-h-[130px] resize-none"
                           name="message"
                           value={message}
                           onChange={handleChange("message")}
                           placeholder="Your message..."
                         />
                         {errors.message && touched.message && (
-                          <span className="text-xs text-red-400 pl-2 pt-1">
+                          <span className="text-xs text-red-400/80 pl-1 pt-1 font-mono">
                             {errors.message}
                           </span>
                         )}
@@ -263,17 +241,21 @@ function Contact() {
                       <button
                         type="submit"
                         disabled={isLoading}
-                        className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
                       >
                         {isLoading ? (
                           <>
-                            <div className="w-4 h-4 border-2 border-base-950 border-t-transparent rounded-full animate-spin" />
-                            Sending...
+                            <div className="w-4 h-4 border-2 border-accent border-t-transparent rounded-full animate-spin" />
+                            <span className="font-mono text-xs">
+                              Sending...
+                            </span>
                           </>
                         ) : (
                           <>
                             <HiPaperAirplane className="text-sm" />
-                            Send Message
+                            <span className="font-mono text-xs">
+                              Send Message
+                            </span>
                           </>
                         )}
                       </button>
@@ -281,7 +263,7 @@ function Contact() {
                   )}
                 </Formik>
               </div>
-            </motion.div>
+            </div>
           </div>
         </motion.div>
       </section>

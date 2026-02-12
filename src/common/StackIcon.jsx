@@ -18,6 +18,7 @@ import {
   SiJest,
   SiRust,
 } from "react-icons/si";
+import { FaGolang } from "react-icons/fa6";
 import { FaCss3Alt, FaReact, FaPython, FaNodeJs } from "react-icons/fa";
 import { TiHtml5 } from "react-icons/ti";
 import { TbBrandFirebase, TbBrandReactNative } from "react-icons/tb";
@@ -46,7 +47,7 @@ function StackIcon({ stack }) {
     [TechStack.POSTGRESQL]: { Icon: SiPostgresql, color: "#64748b" },
     [TechStack.DJANGO]: { Icon: SiDjango, color: "#84a98c" },
     [TechStack.SELENIUM]: { Icon: SiSelenium, color: "#84a98c" },
-    [TechStack.GO_LANG]: { Icon: SiGo, color: "#64748b" },
+    [TechStack.GO_LANG]: { Icon: FaGolang, color: "#64748b" },
     [TechStack.LARAVEL]: { Icon: SiLaravel, color: "#a68a5b" },
     [TechStack.PHP]: { Icon: SiPhp, color: "#64748b" },
     [TechStack.DENO]: { Icon: SiDeno, color: "#d4d4d8" },
