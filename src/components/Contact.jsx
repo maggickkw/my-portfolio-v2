@@ -16,7 +16,7 @@ import { Formik, Form } from "formik";
 import { motion } from "framer-motion";
 import Modal from "./Modal";
 
-const url = process.env.REACT_APP_FORM_URL;
+const url = import.meta.env.VITE_FORM_URL;
 
 const contactSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
