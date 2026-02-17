@@ -1,82 +1,83 @@
-import React, { useEffect } from "react";
-import { FaCloudDownloadAlt } from "react-icons/fa";
-import { TeckStack } from "../common/data"; // Ensure the spelling is correct
-import StackIcon from "../common/StackIcon";
-import { motion, useAnimation } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 
 function Hero() {
-  const controls = useAnimation();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      // Trigger the staggered animation after 3 seconds
-      controls.start({
-        opacity: 1,
-        transition: { staggerChildren: 0.5 }, // Stagger child animations by 0.5 seconds
-      });
-    }, 5000); // Delay for 3 seconds
-
-    return () => clearTimeout(timer);
-  }, [controls]);
+  const fadeUp = (delay = 0) => ({
+    hidden: { opacity: 0, y: 25 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, delay, ease: "easeOut" },
+    },
+  });
 
   return (
     <motion.section
       name="home"
-      className="max-w-5xl h-screen w-full mx-auto flex flex-col justify-center items-center"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
+      className="min-h-screen flex items-center py-24"
+      initial="hidden"
+      animate="visible"
     >
-      <div className="px-6 py-6 flex justify-between items-center">
-        <div className="h-full text-center mx-auto mt-6">
-          <div className="font-Poppins max-w-2xl">
-            <p className="text-base xs:text-lg md:text-xl lg:text-2xl font-bold dark:text-white">
-              <span className="animate-bounce pr-1">👋</span>
-              Hello I'm
-            </p>
-            <h2 className="text-2xl xs:text-3xl md:text-4xl lg:text-5xl font-black dark:text-white">
-              Wilberforce Sedem Haibor
-            </h2>
-            <p className="text-base xs:text-l md:text-xl lg:text-2xl text-gray-600 my-5 dark:text-gray-200">
-              A Full Stack Mobile & Web Engineer, Automations Engineer & Machine Learning Enthusiast conversant with the evolvement of technology
-            </p>
-          </div>
-          <div className="mt-6 flex flex-row items-center justify-center font-Poppins">
-            <a
-              href="./Wilberforce_Sedem_Haibor.pdf"
-              download={true}
-              target="__blank"
-              className="mx-4 border-2 text-base xs:text-lg md:text-xl lg:text-2xl gap-x-2 border-black dark:border-white p-1 px-6 rounded-3xl flex flex-row items-center bg-black text-white hover:bg-white hover:text-black transition ease-in-out duration-300"
-            >
-              <span> Download CV</span>
-              <FaCloudDownloadAlt />
-            </a>
-          </div>
-        </div>
-      </div>
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <motion.p
+            variants={fadeUp(0.1)}
+            className="text-accent font-mono text-sm mb-5"
+          >
+            HI, MY NAME IS
+          </motion.p>
 
-      <div
-        className="font-Poppins mt-20 flex flex-col md:flex-row items-center justify-center"
-        initial={{ opacity: 0 }}
-        animate={controls}
-      >
-        <h3 className="text-xl md:font-bold text-center md:text-2xl md:border-r-2 md:mr-4 border-black dark:border-white w-48 dark:text-white">
-          Tech Stack
-        </h3>
-        <div className="w-full my-4 flex flex-wrap gap-2 px-10 md:px-0">
-          {TeckStack?.map((stack, index) => (
-            <motion.div
-              key={index}
-              title={stack?.name}
-              initial={{ opacity: 0 }} // Icons start invisible
-              animate={{ opacity: 1 }} // Icons fade in
-              transition={{ duration: 1, delay: index * 0.5 }} // Delay for each icon based on its index
+          <motion.h1
+            variants={fadeUp(0.2)}
+            className="text-4xl xs:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-base-200 leading-[1.1]"
+          >
+            WILBERFORCE SEDEM HAIBOR.
+          </motion.h1>
+
+          <motion.h2
+            variants={fadeUp(0.3)}
+            className="text-3xl xs:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-base-500 leading-[1.1] mt-3"
+          >
+            I build fast, scalable products.
+          </motion.h2>
+
+          <motion.p
+            variants={fadeUp(0.4)}
+            className="text-base-400 max-w-lg mt-6 text-base md:text-lg leading-relaxed"
+          >
+            Full-stack web and mobile engineer focused on clean architecture,
+            high-performance APIs, and shipping reliable products with speed.
+          </motion.p>
+
+          <motion.div variants={fadeUp(0.5)} className="mt-12">
+            <Link
+              to="project"
+              smooth={true}
+              offset={-80}
+              duration={500}
+              className="btn-primary"
             >
-              <StackIcon stack={stack.name}  />
-            </motion.div>
-          ))}
+              VIEW PROJECTS
+            </Link>
+          </motion.div>
         </div>
+
+        <motion.div
+          variants={fadeUp(0.4)}
+          className="flex justify-center lg:justify-end order-first lg:order-last"
+        >
+          <div className="relative group">
+            <div className="absolute inset-0 rounded-2xl border-2 border-accent/30 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300" />
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[340px] lg:h-[340px] rounded-2xl overflow-hidden bg-accent/[0.04] border border-base-700/60">
+              <img
+                src="/bitmoji.png"
+                alt="WILBERFORCE SEDEM HAIBOR bitmoji"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </motion.div>
       </div>
     </motion.section>
   );

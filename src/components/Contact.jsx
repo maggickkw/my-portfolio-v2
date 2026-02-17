@@ -1,17 +1,19 @@
 import React, { useState, useRef } from "react";
-import { BiLogoGmail } from "react-icons/bi";
 import {
-  BsLinkedin,
-  BsDashLg,
-  BsDiscord,
-  BsGithub,
-  BsHourglassTop,
-} from "react-icons/bs";
-import { GiSmartphone } from "react-icons/gi";
-import { IoLogoWhatsapp } from "react-icons/io";
-import { IoLocationSharp } from "react-icons/io5";
+  HiEnvelope,
+  HiPhone,
+  HiMapPin,
+  HiPaperAirplane,
+} from "react-icons/hi2";
+import {
+  FaLinkedinIn,
+  FaGithub,
+  FaWhatsapp,
+  FaDiscord,
+} from "react-icons/fa6";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
+import { motion } from "framer-motion";
 import Modal from "./Modal";
 
 const url = process.env.REACT_APP_FORM_URL;
@@ -28,12 +30,53 @@ const initialValue = {
   message: "",
 };
 
-function Contact() {
-  const className = `text-xl  md:text-2xl text-black  dark:text-white`;
-  const classNameSocial = `text-2xl md:text-4xl text-white  hover:scale-125 duration-300  dark:text-black`;
+const contactInfo = [
+  {
+    icon: HiEnvelope,
+    label: "Email",
+    value: "wmaggickk@gmail.com",
+    href: "mailto:wmaggickk@gmail.com",
+  },
+  {
+    icon: HiPhone,
+    label: "Phone",
+    value: "+233 245 910 775",
+    href: "tel:+233245910775",
+  },
+  {
+    icon: HiMapPin,
+    label: "Location",
+    value: "Accra, Ghana",
+    href: "https://www.google.com/maps/place/Accra,+Ghana",
+  },
+];
 
+const socials = [
+  {
+    icon: FaLinkedinIn,
+    href: "https://www.linkedin.com/in/wilberforce-sedem-haibor-59210120b/",
+    label: "LinkedIn",
+  },
+  {
+    icon: FaGithub,
+    href: "https://github.com/maggickkw",
+    label: "GitHub",
+  },
+  {
+    icon: FaWhatsapp,
+    href: "https://api.whatsapp.com/send?phone=233245910775",
+    label: "WhatsApp",
+  },
+  {
+    icon: FaDiscord,
+    href: "https://discordapp.com/channels/@me/wmaggickk/",
+    label: "Discord",
+  },
+];
+
+function Contact() {
   const FormikRef = useRef(null);
-  const [isLoadding, setisLoadding] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   const handleClose = () => {
@@ -43,7 +86,7 @@ function Contact() {
 
   const handleFormSubmit = async ({ name, email, message }) => {
     try {
-      setisLoadding(true);
+      setIsLoading(true);
 
       const formData = new FormData();
       formData.append("Name", name);
@@ -58,160 +101,173 @@ function Contact() {
     } catch (error) {
       console.log("error from submit form", error);
     } finally {
-      setisLoadding(false);
+      setIsLoading(false);
     }
   };
 
   return (
     <>
-      <section
-        id="contact"
-        name="contact"
-        className="max-w-5xl mx-auto p-4 pb-6">
-        <div className="">
-          <div className="text-center my-4 font-Poppins">
-            <div className="text-gray-400 text-base flex items-center justify-center dark:text-gray-300">
-              <BsDashLg className="text-gray-400 text-2xl dark:text-gray-300" />{" "}
-              I'm available for work
-            </div>
-            <h3 className="page-title">Contact Me</h3>
+      <section id="contact" name="contact" className="py-24 md:py-32">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex items-center gap-4 mb-6">
+            <h2 className="flex items-center gap-2 font-display font-semibold text-2xl md:text-[28px] text-base-200 whitespace-nowrap">
+              <span className="font-mono font-normal text-accent text-lg md:text-xl">
+                03.
+              </span>
+              Get In Touch
+            </h2>
+            <div className="h-px bg-base-800 flex-1 max-w-[300px]" />
           </div>
-          <div className="w-full mb-14">
-            <h5 className="text-center text-gray-500  font-Poppins dark:text-gray-300">
-              Submit the form below or reachout through my social's
-            </h5>
-            <Formik
-              innerRef={FormikRef}
-              initialValues={initialValue}
-              validationSchema={contactSchema}
-              // onSubmit={Submit}
-              onSubmit={handleFormSubmit}>
-              {({
-                values: { name, email, message },
-                errors,
-                handleChange,
-                touched,
-                handleSubmit,
 
-              }) => {
-                return (
-                  <Form
-                    className="my-2 max-w-[500px] mx-auto flex flex-col"
-                    onSubmit={handleSubmit}>
-                    <input
-                      className="block flex-1 border border-1 rounded-lg border-black dark:border-gray-300 bg-transparent py-1 pl-3 text-gray-900 placeholder:text-gray-500 focus:ring-0 sm:text-sm sm:leading-6 md:text-xl  focus:outline-none  w-full mt-4  font-Poppins dark:placeholder:text-gray-300 dark:text-gray-200"
-                      type="text"
-                      name="name"
-                      value={name}
-                      onChange={handleChange("name")}
-                      placeholder="Your Name"
-                    />
-                    {errors.name && touched.name && (
-                      <span className="text-xs text-red-600 pl-2 pt-1 dark:text-red-700">
-                        *{errors.name}
-                      </span>
-                    )}
-                    <input
-                      className="block flex-1 border border-1 rounded-lg border-black dark:border-gray-300 bg-transparent py-1 pl-3 text-gray-900 placeholder:text-gray-500 focus:ring-0 sm:text-sm sm:leading-6 md:text-xl  focus:outline-none w-full mt-4 font-Poppins dark:placeholder:text-gray-300 dark:text-gray-200"
-                      type="email"
-                      name="email"
-                      value={email}
-                      onChange={handleChange("email")}
-                      placeholder="Your Email"
-                    />
-                    {errors.email && touched.email && (
-                      <span className="text-xs text-red-600 pl-2 pt-1 dark:text-red-700">
-                        *{errors.email}
-                      </span>
-                    )}
-                    <textarea
-                      className="block flex-1 border border-1 rounded-lg border-black dark:border-gray-300 bg-transparent py-1 pl-3 text-gray-900 placeholder:text-gray-500 focus:ring-0 sm:text-sm sm:leading-6 md:text-xl  focus:outline-none w-full mt-4 font-Poppins dark:placeholder:text-gray-300 dark:text-gray-200"
-                      name="message"
-                      value={message}
-                      onChange={handleChange("message")}
-                      placeholder="Message Here..."></textarea>
-                    {errors.message && touched.message && (
-                      <span className="text-xs text-red-600 pl-2 pt-1 dark:text-red-700">
-                        *{errors.message}
-                      </span>
-                    )}
+          <p className="text-base-400 leading-relaxed max-w-lg mb-12">
+            I'm currently open to new opportunities. Whether you have a project
+            in mind or just want to say hello, I'd love to hear from you.
+          </p>
 
-                    <button
-                      className="w-[145px]  sm:w-[150px] mt-4 text-sm sm:text-base md:text-xl lg:text-xl md:w-[200px] justify-self-end self-end border border-1 border-black px-1 md:px-3 py-1 md:py-2 rounded-lg dark:text-white dark:border-gray-300 hover:bg-black hover:text-white dark:hover:bg-gray-300 dark:hover:text-black font-Poppins transition duration-300 delay-100 hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
-                      type="submit"
-                      disabled={isLoadding}>
-                      {isLoadding ? (
-                        <span className="flex items-center justify-center gap-x-1">
-                          Submitting <BsHourglassTop className="animate-spin" />
-                        </span>
-                      ) : (
-                        "Send"
-                      )}
-                    </button>
-                  </Form>
-                );
-              }}
-            </Formik>
-          </div>
-          <div className="grid  md:grid-cols-2 font-Poppins mt-6">
-            <div className="text-base xs:text-base md:text-xl lg:text-xl p-3 border border-black  dark:border-gray-200 rounded-t-lg md:rounded-l-lg md:rounded-tr-none  dark:text-white">
-              <div className=" flex  items-center gap-2 my-3">
-                <a
-                  href="mailto:wmaggickk@gmail.com"
-                  target="__blank"
-                  rel="noopener noreferrer"
-                  className="hover:scale-125 duration-300">
-                  <BiLogoGmail className={className} />
-                </a>
-                <p>wmaggickk@gmail.com</p>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            <div className="lg:col-span-2 space-y-6">
+              <div className="space-y-1">
+                {contactInfo.map((info) => (
+                  <a
+                    key={info.label}
+                    href={info.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-3 p-3 rounded-lg hover:bg-base-900/60 transition-colors group"
+                  >
+                    <info.icon className="text-lg text-accent shrink-0" />
+                    <div>
+                      <p className="text-xs text-base-500 font-mono">
+                        {info.label}
+                      </p>
+                      <p className="text-sm text-base-300 group-hover:text-accent transition-colors">
+                        {info.value}
+                      </p>
+                    </div>
+                  </a>
+                ))}
               </div>
-              <div className="flex  items-center gap-2 my-3">
-                <a
-                  href="tel:+233245910775"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:scale-125 duration-300">
-                  <GiSmartphone className={className} />
-                </a>
-                <p>+233245910775</p>
-              </div>
-              <div className="flex  items-center gap-2 my-3">
-                <a
-                  href="https://www.google.com/maps/place/Accra,+Ghana"
-                  className="hover:scale-125 duration-300"
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  <IoLocationSharp className={className} />
-                </a>
-                <p>Accra, Ghana</p>
+              <div>
+                <p className="text-xs font-mono text-base-500 mb-3 px-3">
+                  Find me online
+                </p>
+                <div className="flex gap-1 px-1">
+                  {socials.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="social-icon"
+                      title={social.label}
+                    >
+                      <social.icon />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-4 md:gap-2 justify-center justify-items-center items-center bg-black p-3 rounded-b-lg md:rounded-r-lg md:rounded-bl-none dark:bg-white">
-              <a
-                href="https://www.linkedin.com/in/wilberforce-sedem-haibor-59210120b/"
-                target="__blank">
-                <BsLinkedin className={classNameSocial} />
-              </a>
-              <a href="https://github.com/maggickkw" target="__blank">
-                <BsGithub className={classNameSocial} />
-              </a>
-              {/* <a href="https://x.com/king_maggick" target="__blank">
-                <BsTwitterX className={classNameSocial} />
-              </a> */}
-              <a
-                href="https://api.whatsapp.com/send?phone=233245910775"
-                target="__blank">
-                <IoLogoWhatsapp className={classNameSocial} />
-              </a>
-              <a
-                href="https://discordapp.com/channels/@me/wmaggickk/"
-                target="__blank">
-                <BsDiscord className={classNameSocial} />
-              </a>
+            <div className="lg:col-span-3">
+              <div className="border border-base-800/50 rounded-lg p-6 md:p-8">
+                <h4 className="text-base-200 font-display font-medium text-lg mb-6">
+                  Send a message
+                </h4>
+                <Formik
+                  innerRef={FormikRef}
+                  initialValues={initialValue}
+                  validationSchema={contactSchema}
+                  onSubmit={handleFormSubmit}
+                >
+                  {({
+                    values: { name, email, message },
+                    errors,
+                    handleChange,
+                    touched,
+                    handleSubmit,
+                  }) => (
+                    <Form onSubmit={handleSubmit} className="space-y-4">
+                      <div>
+                        <input
+                          className="input-field"
+                          type="text"
+                          name="name"
+                          value={name}
+                          onChange={handleChange("name")}
+                          placeholder="Your name"
+                        />
+                        {errors.name && touched.name && (
+                          <span className="text-xs text-red-400/80 pl-1 pt-1 font-mono">
+                            {errors.name}
+                          </span>
+                        )}
+                      </div>
+
+                      <div>
+                        <input
+                          className="input-field"
+                          type="email"
+                          name="email"
+                          value={email}
+                          onChange={handleChange("email")}
+                          placeholder="Your email"
+                        />
+                        {errors.email && touched.email && (
+                          <span className="text-xs text-red-400/80 pl-1 pt-1 font-mono">
+                            {errors.email}
+                          </span>
+                        )}
+                      </div>
+
+                      <div>
+                        <textarea
+                          className="input-field min-h-[130px] resize-none"
+                          name="message"
+                          value={message}
+                          onChange={handleChange("message")}
+                          placeholder="Your message..."
+                        />
+                        {errors.message && touched.message && (
+                          <span className="text-xs text-red-400/80 pl-1 pt-1 font-mono">
+                            {errors.message}
+                          </span>
+                        )}
+                      </div>
+
+                      <button
+                        type="submit"
+                        disabled={isLoading}
+                        className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
+                      >
+                        {isLoading ? (
+                          <>
+                            <div className="w-4 h-4 border-2 border-accent border-t-transparent rounded-full animate-spin" />
+                            <span className="font-mono text-xs">
+                              Sending...
+                            </span>
+                          </>
+                        ) : (
+                          <>
+                            <HiPaperAirplane className="text-sm" />
+                            <span className="font-mono text-xs">
+                              Send Message
+                            </span>
+                          </>
+                        )}
+                      </button>
+                    </Form>
+                  )}
+                </Formik>
+              </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
+
       {showModal && (
         <Modal
           name={FormikRef?.current?.values?.name}
