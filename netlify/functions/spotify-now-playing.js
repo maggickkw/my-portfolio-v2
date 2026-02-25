@@ -32,7 +32,7 @@ exports.handler = async () => {
       return {
         statusCode: 200,
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ isPlaying: false }),
+        body: JSON.stringify({ isPlaying: false, track: null, artist: null, url: null }),
       };
     }
 
@@ -41,10 +41,32 @@ exports.handler = async () => {
     });
 
     if (nowPlayingRes.status === 204 || nowPlayingRes.status === 202) {
+      const recentRes = await fetch("https://api.spotify.com/v1/me/player/recently-played?limit=1", {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+
+      if (recentRes.ok) {
+        const recentData = await recentRes.json();
+        const recentItem = recentData?.items?.[0];
+        if (recentItem?.track) {
+          return {
+            statusCode: 200,
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({
+              isPlaying: false,
+              track: recentItem.track.name || null,
+              artist: recentItem.track.artists?.map((a) => a.name).join(", ") || null,
+              url: recentItem.track.external_urls?.spotify || null,
+              playedAt: recentItem.played_at || null,
+            }),
+          };
+        }
+      }
+
       return {
         statusCode: 200,
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ isPlaying: false }),
+        body: JSON.stringify({ isPlaying: false, track: null, artist: null, url: null }),
       };
     }
 
@@ -52,7 +74,7 @@ exports.handler = async () => {
       return {
         statusCode: 200,
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ isPlaying: false }),
+        body: JSON.stringify({ isPlaying: false, track: null, artist: null, url: null }),
       };
     }
 
@@ -73,7 +95,7 @@ exports.handler = async () => {
     return {
       statusCode: 200,
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ isPlaying: false }),
+      body: JSON.stringify({ isPlaying: false, track: null, artist: null, url: null }),
     };
   }
 };

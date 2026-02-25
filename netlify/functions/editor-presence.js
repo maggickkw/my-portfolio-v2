@@ -1,4 +1,4 @@
-const { getStore } = require("@netlify/blobs");
+const { connectLambda, getStore } = require("@netlify/blobs");
 
 const CORS_HEADERS = {
   "access-control-allow-origin": "*",
@@ -23,6 +23,7 @@ exports.handler = async (event) => {
     return { statusCode: 204, headers: CORS_HEADERS, body: "" };
   }
 
+  connectLambda(event);
   const store = getStore("editor-presence");
 
   if (event.httpMethod === "GET") {
