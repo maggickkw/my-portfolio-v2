@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Nav from "components/Nav";
 import Hero from "components/Hero";
+import LiveSignals from "components/LiveSignals";
 import About from "components/About";
 import Projects from "components/Projects";
 import Contact from "components/Contact";
@@ -20,7 +21,7 @@ function App() {
   return (
     <div className="min-h-screen bg-base-900 relative">
       <div
-        className="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300 hidden lg:block"
+        className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300 hidden lg:block"
         style={{
           background: `radial-gradient(650px at ${mousePosition.x}px ${mousePosition.y}px, rgba(107, 140, 199, 0.04), transparent 80%)`,
         }}
@@ -29,6 +30,7 @@ function App() {
         <Nav />
         <main className="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-24">
           <Hero />
+          <LiveSignals />
           <About />
           <Projects />
           <Contact />
