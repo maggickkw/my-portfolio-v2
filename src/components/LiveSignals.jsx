@@ -180,7 +180,9 @@ function LiveSignals() {
                   ? "Checking..."
                   : state.spotify.isPlaying
                     ? `${state.spotify.track} - ${state.spotify.artist}`
-                    : "Nothing playing"}
+                    : state.spotify.track
+                      ? `Last played: ${state.spotify.track} - ${state.spotify.artist}`
+                      : "Nothing playing"}
               </p>
               <p className="text-base-400 text-[11px] mt-1 truncate">
                 {state.spotify.url ? (
