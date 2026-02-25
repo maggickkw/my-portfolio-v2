@@ -4,12 +4,10 @@
   "private": true,
   "author": "Wilberforce Sedem Haibor",
   "dependencies": {
-    "@netlify/blobs": "^10.7.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.5.0",
-    "dotenv": "^17.3.1",
     "formik": "^2.4.4",
     "framer-motion": "^11.11.9",
     "react": "^18.2.0",
@@ -25,9 +23,7 @@
     "dev": "vite",
     "build": "vite build && echo '/* /index.html  200' > dist/_redirects",
     "preview": "vite preview",
-    "test": "echo \"No test runner configured for Vite migration\" && exit 0",
-    "heartbeat:cursor": "node -r dotenv/config scripts/editor-heartbeat.js cursor",
-    "heartbeat:vscode": "node -r dotenv/config scripts/editor-heartbeat.js vscode"
+    "test": "echo \"No test runner configured for Vite migration\" && exit 0"
   },
   "eslintConfig": {
     "extends": [

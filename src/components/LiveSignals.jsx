@@ -1,14 +1,8 @@
-import React, { useEffect, useMemo, useState } from "react";
-import {
-  HiCodeBracketSquare,
-  HiClock,
-  HiMusicalNote,
-  HiSignal,
-  HiXMark,
-} from "react-icons/hi2";
+import React, { useEffect, useState } from "react";
+import { FaGithub, FaSpotify } from "react-icons/fa6";
+import { HiSignal, HiXMark } from "react-icons/hi2";
 
 const initialState = {
-  editor: { loading: true, online: false, editor: "unknown", updatedAt: null },
   github: { loading: true, lastPushAt: null, repo: null },
   spotify: { loading: true, isPlaying: false, track: null, artist: null, url: null },
 };
@@ -31,27 +25,17 @@ function LiveSignals() {
   const [isOpen, setIsOpen] = useState(true);
   const [isNearHero, setIsNearHero] = useState(true);
 
-  const editorLabel = useMemo(() => {
-    if (state.editor.loading) return "Checking editor status...";
-    if (!state.editor.online) return "Offline";
-    if (state.editor.editor === "cursor") return "Cursor open";
-    if (state.editor.editor === "vscode") return "VS Code open";
-    return "Editor open";
-  }, [state.editor]);
-
   useEffect(() => {
     let active = true;
 
     const fetchSignals = async () => {
       try {
-        const [editorRes, githubRes, spotifyRes] = await Promise.all([
-          fetch("/.netlify/functions/editor-presence"),
+        const [githubRes, spotifyRes] = await Promise.all([
           fetch("/.netlify/functions/github-last-push"),
           fetch("/.netlify/functions/spotify-now-playing"),
         ]);
 
-        const [editorData, githubData, spotifyData] = await Promise.all([
-          editorRes.ok ? editorRes.json() : null,
+        const [githubData, spotifyData] = await Promise.all([
           githubRes.ok ? githubRes.json() : null,
           spotifyRes.ok ? spotifyRes.json() : null,
         ]);
@@ -59,12 +43,6 @@ function LiveSignals() {
         if (!active) return;
 
         setState({
-          editor: {
-            loading: false,
-            online: Boolean(editorData?.isOpen),
-            editor: editorData?.editor || "unknown",
-            updatedAt: editorData?.updatedAt || null,
-          },
           github: {
             loading: false,
             lastPushAt: githubData?.lastPushAt || null,
@@ -81,7 +59,6 @@ function LiveSignals() {
       } catch (error) {
         if (!active) return;
         setState((prev) => ({
-          editor: { ...prev.editor, loading: false },
           github: { ...prev.github, loading: false },
           spotify: { ...prev.spotify, loading: false },
         }));
@@ -119,7 +96,7 @@ function LiveSignals() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="hidden lg:block fixed right-6 top-[48%] -translate-y-1/2 z-[70] px-3 py-2 rounded-full border border-accent/40 bg-base-900/85 text-accent hover:bg-accent/15 transition-all duration-200 backdrop-blur-md shadow-lg"
+          className="fixed right-4 lg:right-6 top-[76px] z-[70] px-3 py-2 rounded-full border border-accent/40 bg-base-900/85 text-accent hover:bg-accent/15 transition-all duration-200 backdrop-blur-md shadow-lg"
           aria-label="Open live status panel"
         >
           <span className="inline-flex items-center gap-2 font-mono text-xs">
@@ -130,7 +107,7 @@ function LiveSignals() {
       )}
 
       {isOpen && (
-        <aside className="hidden lg:block fixed z-[70] right-6 top-[48%] -translate-y-1/2 w-[290px] rounded-2xl overflow-hidden border border-base-700/60 backdrop-blur-xl shadow-2xl bg-gradient-to-br from-[#1a2440]/95 via-[#161b22]/95 to-[#102b26]/95">
+        <aside className="fixed z-[70] right-3 lg:right-6 top-[76px] lg:top-24 w-[calc(100%-1.5rem)] max-w-[300px] lg:w-[300px] rounded-2xl overflow-hidden border border-base-700/60 backdrop-blur-xl shadow-2xl bg-gradient-to-br from-[#1a2440]/95 via-[#161b22]/95 to-[#102b26]/95">
           <div className="flex items-center justify-between px-4 py-3 border-b border-base-700/60 bg-gradient-to-r from-accent/25 via-violet-400/20 to-emerald-400/20">
             <div className="inline-flex items-center gap-2">
               <HiSignal className="text-accent-light text-sm" />
@@ -145,22 +122,11 @@ function LiveSignals() {
             </button>
           </div>
 
-          <div className="p-3 space-y-2">
-            <article className="rounded-xl border border-blue-300/20 bg-blue-400/10 px-3 py-2.5">
-              <div className="flex items-center gap-2 text-base-200 mb-1">
-                <HiCodeBracketSquare className="text-blue-300 text-base" />
-                <h3 className="font-mono text-[11px] uppercase tracking-wide">Editor</h3>
-              </div>
-              <p className="text-base-100 text-sm font-medium">{editorLabel}</p>
-              <p className="text-base-400 text-[11px] mt-1">
-                Updated {state.editor.loading ? "..." : timeAgo(state.editor.updatedAt)}
-              </p>
-            </article>
-
+          <div className="p-3 space-y-2.5">
             <article className="rounded-xl border border-violet-300/20 bg-violet-400/10 px-3 py-2.5">
-              <div className="flex items-center gap-2 text-base-200 mb-1">
-                <HiClock className="text-violet-300 text-base" />
-                <h3 className="font-mono text-[11px] uppercase tracking-wide">GitHub Push</h3>
+              <div className="flex items-center gap-2 text-base-200 mb-1.5">
+                <FaGithub className="text-violet-300 text-sm" />
+                <h3 className="font-mono text-[11px] uppercase tracking-wide">GitHub</h3>
               </div>
               <p className="text-base-100 text-sm font-medium">
                 {state.github.loading ? "Checking..." : timeAgo(state.github.lastPushAt)}
@@ -171,8 +137,8 @@ function LiveSignals() {
             </article>
 
             <article className="rounded-xl border border-emerald-300/20 bg-emerald-400/10 px-3 py-2.5">
-              <div className="flex items-center gap-2 text-base-200 mb-1">
-                <HiMusicalNote className="text-emerald-300 text-base" />
+              <div className="flex items-center gap-2 text-base-200 mb-1.5">
+                <FaSpotify className="text-emerald-300 text-sm" />
                 <h3 className="font-mono text-[11px] uppercase tracking-wide">Spotify</h3>
               </div>
               <p className="text-base-100 text-sm font-medium truncate">
