@@ -93,10 +93,66 @@ function LiveSignals() {
 
   return (
     <>
+      <section className="lg:hidden mt-4 mb-6">
+        <div className="rounded-2xl overflow-hidden border border-base-700/60 backdrop-blur-xl shadow-xl bg-gradient-to-br from-[#1a2440]/95 via-[#161b22]/95 to-[#102b26]/95">
+          <div className="px-4 py-3 border-b border-base-700/60 bg-gradient-to-r from-accent/25 via-violet-400/20 to-emerald-400/20">
+            <div className="inline-flex items-center gap-2">
+              <HiSignal className="text-accent-light text-sm" />
+              <span className="font-mono text-xs text-base-100 tracking-wide">LIVE NOW</span>
+            </div>
+          </div>
+
+          <div className="p-3 space-y-2.5">
+            <article className="rounded-xl border border-violet-300/20 bg-violet-400/10 px-3 py-2.5">
+              <div className="flex items-center gap-2 text-base-200 mb-1.5">
+                <FaGithub className="text-violet-300 text-sm" />
+                <h3 className="font-mono text-[11px] uppercase tracking-wide">GitHub</h3>
+              </div>
+              <p className="text-base-100 text-sm font-medium">
+                {state.github.loading ? "Checking..." : timeAgo(state.github.lastPushAt)}
+              </p>
+              <p className="text-base-400 text-[11px] mt-1 truncate">
+                {state.github.repo || "No recent push found"}
+              </p>
+            </article>
+
+            <article className="rounded-xl border border-emerald-300/20 bg-emerald-400/10 px-3 py-2.5">
+              <div className="flex items-center gap-2 text-base-200 mb-1.5">
+                <FaSpotify className="text-emerald-300 text-sm" />
+                <h3 className="font-mono text-[11px] uppercase tracking-wide">Spotify</h3>
+              </div>
+              <p className="text-base-100 text-sm font-medium truncate">
+                {state.spotify.loading
+                  ? "Checking..."
+                  : state.spotify.isPlaying
+                    ? `${state.spotify.track} - ${state.spotify.artist}`
+                    : state.spotify.track
+                      ? `Last played: ${state.spotify.track} - ${state.spotify.artist}`
+                      : "Nothing playing"}
+              </p>
+              <p className="text-base-400 text-[11px] mt-1 truncate">
+                {state.spotify.url ? (
+                  <a
+                    href={state.spotify.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-emerald-300 hover:text-emerald-200 transition-colors"
+                  >
+                    Open on Spotify
+                  </a>
+                ) : (
+                  "Spotify status unavailable"
+                )}
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed right-4 lg:right-6 top-[76px] z-[70] px-3 py-2 rounded-full border border-accent/40 bg-base-900/85 text-accent hover:bg-accent/15 transition-all duration-200 backdrop-blur-md shadow-lg"
+          className="hidden lg:block fixed right-4 lg:right-6 top-[76px] z-[70] px-3 py-2 rounded-full border border-accent/40 bg-base-900/85 text-accent hover:bg-accent/15 transition-all duration-200 backdrop-blur-md shadow-lg"
           aria-label="Open live status panel"
         >
           <span className="inline-flex items-center gap-2 font-mono text-xs">
@@ -107,7 +163,7 @@ function LiveSignals() {
       )}
 
       {isOpen && (
-        <aside className="fixed z-[70] right-3 lg:right-6 top-[76px] lg:top-24 w-[calc(100%-1.5rem)] max-w-[300px] lg:w-[300px] rounded-2xl overflow-hidden border border-base-700/60 backdrop-blur-xl shadow-2xl bg-gradient-to-br from-[#1a2440]/95 via-[#161b22]/95 to-[#102b26]/95">
+        <aside className="hidden lg:block fixed z-[70] right-3 lg:right-6 top-[76px] lg:top-24 w-[300px] rounded-2xl overflow-hidden border border-base-700/60 backdrop-blur-xl shadow-2xl bg-gradient-to-br from-[#1a2440]/95 via-[#161b22]/95 to-[#102b26]/95">
           <div className="flex items-center justify-between px-4 py-3 border-b border-base-700/60 bg-gradient-to-r from-accent/25 via-violet-400/20 to-emerald-400/20">
             <div className="inline-flex items-center gap-2">
               <HiSignal className="text-accent-light text-sm" />
