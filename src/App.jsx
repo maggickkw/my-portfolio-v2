@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Nav from "components/Nav";
 import Hero from "components/Hero";
-import LiveSignals from "components/LiveSignals";
 import About from "components/About";
 import Projects from "components/Projects";
 import Contact from "components/Contact";
@@ -28,9 +27,8 @@ function App() {
       />
       <div className="relative z-10">
         <Nav />
-        <main className="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-24">
+        <main className="max-w-screen-2xl mx-auto px-6 md:px-12 lg:px-20 xl:px-28">
           <Hero />
-          <LiveSignals />
           <About />
           <Projects />
           <Contact />
