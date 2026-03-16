@@ -52,7 +52,7 @@ function Hero() {
           >
             I build the infrastructure money moves through — payment gateways,
             lending systems, double-entry ledgers, and settlement engines. Go and
-            TypeScript primarily. I've shipped checkout and loan management
+            Rust primarily. I've shipped checkout and loan management
             systems in production fintech environments.
           </motion.p>
 
