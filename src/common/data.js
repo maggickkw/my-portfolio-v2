@@ -9,11 +9,29 @@ import { isIOS } from "react-device-detect";
 
 export const experience_data = [
   {
+    title: "Senior Software Engineer",
+    description:
+      "Architected and shipped a decoupling microservice to isolate the API backend, reducing inter-system dependencies and laying the groundwork for independent scaling and deployment. Engineered full-stack features end-to-end across a PHP backend and TypeScript/React frontends serving students, tutors, admins, and sales, owning delivery from design through production. Established platform-wide observability by introducing an audit layer that captures sensitive admin actions transparently, giving Operations full traceability without per-feature instrumentation. Redesigned core business-critical flows — including tutor payments, invoicing, and lesson rescheduling — eliminating commission inaccuracies, last-minute churn, and recurring support load. Drove data integrity and automation across the CRM and customer lifecycle, building CSV-driven migration tooling with deduplication and safeguards so account managers can hand over cohorts at scale.",
+    company: "EasyPeasy",
+    companyLocation: "Zug, Switzerland",
+    from: "Jan 2026",
+    to: "Present",
+  },
+  {
+    title: "Senior Software Engineer",
+    description:
+      "Architected and shipped a decoupling microservice to isolate the API backend, reducing inter-system dependencies and laying the groundwork for independent scaling and deployment. Engineered full-stack features end-to-end across a PHP backend and TypeScript/React frontends serving students, tutors, admins, and sales, owning delivery from design through production. Established platform-wide observability by introducing an audit layer that captures sensitive admin actions transparently, giving Operations full traceability without per-feature instrumentation. Redesigned core business-critical flows — including tutor payments, invoicing, and lesson rescheduling — eliminating commission inaccuracies, last-minute churn, and recurring support load. Drove data integrity and automation across the CRM and customer lifecycle, building CSV-driven migration tooling with deduplication and safeguards so account managers can hand over cohorts at scale.",
+    company: "Edusogno",
+    companyLocation: "Milan, Italy",
+    from: "Oct 2025",
+    to: "Dec 2025",
+  },
+  {
     title: "Technical Manager",
     description:
       "Led the technical retraining and transition of the mobile development team from Flutter to React Native. Conducted technical assessments, code reviews, and architecture evaluations for prospective engineering hires. Designed and led technical interviews focused on React.js and Next.js. Mentored developers through hands-on code reviews, technical guidance, and knowledge-sharing sessions.",
     company: "AutomatedPros",
-    location: "Remote",
+    companyLocation: "Dubai, UAE",
     from: "Aug 2025",
     to: "Jan 2026",
   },
@@ -31,7 +49,7 @@ export const experience_data = [
     description:
       "Participated in the development and maintenance of the Luupli mobile application and all web functions. Contributed to technical architecture and design of mobile and web applications, ensuring scalability, performance, and adherence to coding standards throughout the entire development lifecycle.",
     company: "Luupli",
-    location: "London, UK",
+    companyLocation: "London, UK",
     from: "Jul 2023",
     to: "Present",
   },
