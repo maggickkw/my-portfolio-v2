@@ -34,8 +34,20 @@ const TimelineItem = ({ item, type, index }) => {
           </span>
         </h4>
 
-        {item?.location && (
-          <p className="text-xs text-base-500 mt-1.5">{item.location}</p>
+        {isExperience && item?.companyLocation && (
+          <p className="text-xs text-base-500 mt-1.5 normal-case not-italic">
+            {item.companyLocation}
+          </p>
+        )}
+        {isExperience && item?.location && !item?.companyLocation && (
+          <p className="text-xs text-base-500 mt-1.5 normal-case not-italic">
+            {item.location}
+          </p>
+        )}
+        {!isExperience && item?.location && (
+          <p className="text-xs text-base-500 mt-1.5 normal-case not-italic">
+            {item.location}
+          </p>
         )}
 
         {item?.description && (
