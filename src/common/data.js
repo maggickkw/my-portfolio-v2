@@ -23,7 +23,7 @@ export const experience_data = [
       "Architected and shipped a decoupling microservice to isolate the API backend, reducing inter-system dependencies and laying the groundwork for independent scaling and deployment. Engineered full-stack features end-to-end across a PHP backend and TypeScript/React frontends serving students, tutors, admins, and sales, owning delivery from design through production. Established platform-wide observability by introducing an audit layer that captures sensitive admin actions transparently, giving Operations full traceability without per-feature instrumentation. Redesigned core business-critical flows — including tutor payments, invoicing, and lesson rescheduling — eliminating commission inaccuracies, last-minute churn, and recurring support load. Drove data integrity and automation across the CRM and customer lifecycle, building CSV-driven migration tooling with deduplication and safeguards so account managers can hand over cohorts at scale.",
     company: "Edusogno",
     companyLocation: "Milan, Italy",
-    from: "Jan 2020",
+    from: "Oct 2025",
     to: "Dec 2025",
   },
   {
