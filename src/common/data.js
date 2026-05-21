@@ -33,7 +33,7 @@ export const experience_data = [
     company: "AutomatedPros",
     companyLocation: "Dubai, UAE",
     from: "Aug 2025",
-    to: "Jan 2026",
+    to: "May 2026",
   },
   {
     title: "Full-stack Developer",
@@ -51,7 +51,7 @@ export const experience_data = [
     company: "Luupli",
     companyLocation: "London, UK",
     from: "Jul 2023",
-    to: "Present",
+    to: "May 2026",
   },
   {
     title: "Full-stack Developer",
