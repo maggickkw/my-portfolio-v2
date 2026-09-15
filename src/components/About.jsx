@@ -10,22 +10,21 @@ const SELECTED_OPTION = {
 };
 
 const recentTech = [
-  "JavaScript (ES6+)",
-  "TypeScript",
-  "React / React Native",
-  "Node.js / Express",
-  "Python / Django",
   "Go",
   "Rust",
+  "Elixir",
+  "TypeScript / JavaScript",
   "PHP / Laravel",
-  "PostgreSQL",
-  "Firebase",
-  "Docker",
-  "Electron",
-  "Deno",
+  "Python / Django",
+  "Go Fiber / Gin",
+  "Node.js / Express",
   "Webman",
-  "Selenium",
-  "Machine Learning",
+  "PostgreSQL",
+  "Redis",
+  "gRPC / WebSockets",
+  "Docker",
+  "React / React Native",
+  "Next.js",
 ];
 
 function About() {

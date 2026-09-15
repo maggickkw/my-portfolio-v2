@@ -5,10 +5,10 @@ const TimelineItem = ({ item, type, index }) => {
   const isExperience = type === "experience";
   let dateLabel = "";
   if (isExperience) {
-    dateLabel = `${item?.from} — ${item?.to}`;
+    dateLabel = `${item?.from} – ${item?.to}`;
   } else {
     if (item?.from && item?.to) {
-      dateLabel = `${item.from} — ${item.to}`;
+      dateLabel = `${item.from} – ${item.to}`;
     } else {
       dateLabel = item?.to || item?.from || "";
     }

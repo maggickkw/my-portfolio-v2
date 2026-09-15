@@ -50,7 +50,7 @@ function Hero() {
             variants={fadeUp(0.4)}
             className="text-base-400 max-w-xl mt-6 text-base md:text-lg leading-relaxed"
           >
-            I build the infrastructure money moves through — payment gateways,
+            I build the infrastructure money moves through: payment gateways,
             lending systems, double-entry ledgers, and settlement engines. Go and
             Rust primarily. I've shipped checkout and loan management
             systems in production fintech environments.
@@ -64,13 +64,6 @@ function Hero() {
             African markets.
           </motion.p>
 
-          <motion.p
-            variants={fadeUp(0.4)}
-            className="text-base-500 text-sm max-w-xl"
-          >
-            Built payment gateways, checkout systems, and lending platforms used
-            in production.
-          </motion.p>
 
           <motion.div variants={fadeUp(0.5)} className="mt-10">
             <Link
@@ -83,7 +76,7 @@ function Hero() {
               View Selected Projects
             </Link>
             <p className="text-base-600 text-xs font-mono mt-4 tracking-wide">
-              Go • TypeScript • Rust • Python • PHP
+              Go • Rust • Elixir • TypeScript • PHP
             </p>
           </motion.div>
         </div>
